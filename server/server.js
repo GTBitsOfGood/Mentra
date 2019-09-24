@@ -40,6 +40,18 @@ mongoose.connect(mongoDB, { useNewUrlParser: true }, err => {
             throw err;
         console.log("Userinfo ", userInfo);
     })
+
+    // deleting
+    UserInfo.findByIdAndRemove({ "userName" : 'Charlie' }, (err, userInfo) => {
+        if (err) return res.status(500).send(err);
+        // Creating an object to return to tell the object that was deleted
+        const response = {
+            message: "UserInfo successfully deleted",
+            id: userInfo._id
+        };
+        return res.status(200).send(response);
+    })
+
 });
 
 
