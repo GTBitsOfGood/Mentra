@@ -21,10 +21,11 @@ mongoose.connect(mongoDB, { useNewUrlParser: true }, err => {
 
     // a new user object
     const newUser = new UserInfo({
-        createAt: '2019-09-15',
-        userName: 'Charlie',
-        password: passCode,
-        email: 'someName@gatech.edu'
+        accountInfo: {
+            createdAt: '2019-09-23',
+            userName: "asdf",
+            password: passCode
+        }
     });
 
     // sample save (insert), also can use create or insertMany API
@@ -39,28 +40,42 @@ mongoose.connect(mongoDB, { useNewUrlParser: true }, err => {
         if (err) 
             throw err;
         console.log("Userinfo ", userInfo);
-    })
+    });
 
-    // deleting
-    UserInfo.findByIdAndRemove({ "userName" : 'Charlie' }, (err, userInfo) => {
-        if (err) return res.status(500).send(err);
-        // Creating an object to return to tell the object that was deleted
-        const response = {
-            message: "UserInfo successfully deleted",
-            id: userInfo._id
-        };
-        return res.status(200).send(response);
-    })
-
+    console.log({"accountInfo.userName" : "asdf"});
+    UserInfo.find({"accountInfo.userName" : "asdf"})
+            .then(docs => {
+                console.log(docs);
+                for (let item of docs){
+                    console.log(item.get("accountInfo").userName);
+                } 
+            });
 });
 
-
-app.post('/getapi', (req, res) => {
-   
+app.post('/findpost', (req, res) => {
+    const key = String(req.body.key);
+    const value = String(req.body.value);
+    queryFromDb(key, value, res);
 });
 
-app.get('/postapi', (req, res) => {
-
+app.get('/generalFindGet', (req, res) => {
+    const key = String(req.query.key);
+    const value = String(req.query.value);
+    queryFromDb(key, value, res);
 });
+
+function queryFromDb(key, value, res) {
+    console.log("req: " + key + " " + value + " " + (key ==="accountInfo.userName"));
+    obj = {}
+    obj[key] = value
+    console.log(obj)
+    UserInfo.find(obj)
+            .then(docs => {
+                console.log(docs);
+                res.send(docs);
+            })
+            .catch(err => console.log(err));
+}
+
 
 app.listen(port, () => console.log('Server started at port 5000'))
