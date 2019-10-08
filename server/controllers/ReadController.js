@@ -1,10 +1,11 @@
-const UserInfo = require("../models/UserSchema");
+const UserInfo = require("../modles/UserSchema");
 
 module.exports = {
-    findPost: (req, res) => {
+    readPost: (req, res) => {
+        console.log("Called");
         const key = String(req.body.key);
         const value = String(req.body.value);
-        console.log("req: " + key + " " + value + " " + (key ==="accountInfo.userName"));
+        console.log("req: " + key + " " + value + " ");
         obj = {}
         obj[key] = value
         console.log(obj)
@@ -15,10 +16,10 @@ module.exports = {
                 })
                 .catch(err => console.log(err));
     },
-    generalFindGet: (req, res) => {
+    readGet: (req, res) => {
         const key = String(req.query.key);
         const value = String(req.query.value);
-        console.log("req: " + key + " " + value + " " + (key ==="accountInfo.userName"));
+        console.log("req: " + key + " " + value + " ");
         obj = {}
         obj[key] = value
         console.log(obj)
