@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from './images/Mentra logo.png';
-import Question from './components/question';
+import Wizard from './components/wizard';
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './stepzilla.css';
 import './App.css';
 
 function App() {
@@ -9,7 +12,9 @@ function App() {
       <header className="rectangle">
         <img src={logo} className="logo" alt="logo" />
       </header>
-      <Question/>
+      <Container>
+        <Wizard />
+      </Container>
     </div>
   );
 }
