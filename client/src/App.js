@@ -9,10 +9,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="rectangle">
-        <img src={logo} className="logo" alt="logo" />
-      </header>
       <Container>
+        <header className="rectangle">
+          <img src={logo} className="logo" alt="logo" />
+        </header>
         <Wizard />
       </Container>
     </div>
