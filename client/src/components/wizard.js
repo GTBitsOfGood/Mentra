@@ -19,7 +19,7 @@ export default class Wizard extends Component {
             { name: 'Question 3', component: <Question3 /> },
             { name: 'Question 4', component: <Question4 /> },
             { name: 'Question 5', component: <Question5 /> },
-            { name: 'Question 5', component: <Question6 /> }
+            { name: 'Finish', component: <Question6 /> }
         ]
     }
 
