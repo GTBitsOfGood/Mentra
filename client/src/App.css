@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +30,28 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.rectangle {
+	box-sizing: border-box;
+  border-bottom: 0.5px solid #979797;
+}
+
+.logo {
+  width:160px;
+  height:60px;
+  margin-left:2em;
+  margin-top:1em;
+}
+
+h2 {
+  text-align:center;
+}
+
+.container {
+  text-align:center;
+}
+
+.btn.btn-next.btn-primary.btn-lg.pull-left {
+  margin-right: 1em;
 }

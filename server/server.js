@@ -7,13 +7,13 @@ const mongoose = require('mongoose');
 const routes = require('./routes/route');
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', routes);
 
 const mongoDB = 'mongodb://localhost:27017/mentra';
 mongoose.connect(mongoDB, { useNewUrlParser: true }, err => {
-    if (err) 
+    if (err)
         throw err;
 });
 
