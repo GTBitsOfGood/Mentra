@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 
-export default class Question extends Component {
+export default class Question4 extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            text: "Are you willing and able to answer questions on your own?"
+            text: "When faced with new activities,"
         };
     }
 
@@ -18,8 +18,8 @@ export default class Question extends Component {
                 <h2>{this.state.text}</h2>
                 <Form>
                     <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Yes" />
-                        <Form.Check type="checkbox" label="No" />
+                        <Form.Check type="radio" label="I struggle since it's not what I'm used to" />
+                        <Form.Check type="radio" label="I'm excited to try new things" />
                     </Form.Group>
                 </Form>
             </div>
