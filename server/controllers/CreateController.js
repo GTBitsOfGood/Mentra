@@ -5,6 +5,7 @@ module.exports = {
     createPost: (req, res) => {
         const userName = String(req.query.userName);
         const password = String(req.query.passWord);
+        const email = String(req.query.email);
         const md5 = crypto.createHash('md5');
         const passCode = md5.update(password).digest('hex');
         console.log(passCode);
@@ -13,6 +14,7 @@ module.exports = {
         const newUser = new UserInfo({
             createdAt: time,
             userName: userName,
+            email: email,
             password: passCode
         });
         console.log(newUser);
@@ -28,6 +30,7 @@ module.exports = {
     createGet: (req, res) => {
         const userName = String(req.query.userName);
         const password = String(req.query.passWord);
+        const email = String(req.query.email);
         const md5 = crypto.createHash('md5');
         const passCode = md5.update(password).digest('hex');
         console.log(passCode);
@@ -36,6 +39,7 @@ module.exports = {
         const newUser = new UserInfo({
             createdAt: time,
             userName: userName,
+            email: email,
             password: passCode
         });
         console.log(newUser);
