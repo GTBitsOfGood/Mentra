@@ -10,7 +10,7 @@ const typeDefs = gql`
     }
     # INPUT TYPES
 
-    input UserInfoInput {
+    input UserInput {
       accountInfo: AccountInfoInput!
       identifyingInfo: IdentifyingInfoInput
       experienceInfo: ExperienceInfoInput
@@ -18,7 +18,7 @@ const typeDefs = gql`
       disabilityInfo: DisabilityInfoInput
     }
 
-    input IdentifyingInfoInput {
+    input IdentityInput {
       fullName: String!
       email: String!
       phoneNumber: String
@@ -29,7 +29,7 @@ const typeDefs = gql`
       age: Int
     }
 
-    input ExperienceInfoInput {
+    input ExperienceInput {
       training: [vocationalTrainingInfo!]!
       education: [educationalInfo!]!
       legalAuthorization: Boolean
@@ -37,7 +37,7 @@ const typeDefs = gql`
       resume: String
     }
 
-    input WorkPreferenceInfoInput {
+    input WorkPreferenceInput {
       timing: timingInfo!
       workingSpace: spaceInfo!
       tasks: tasksInfo!
@@ -46,7 +46,7 @@ const typeDefs = gql`
       teamwork: Boolean!
     }
 
-    input DisabilityInfoInput {
+    input DisabilityInput {
       employable: Boolean!
       speechAbility: Boolean!
       createdOwnProfile: Boolean!
@@ -54,7 +54,7 @@ const typeDefs = gql`
     }
 
     # TOP LEVEL AGGREGATES
-    type UserInfo {
+    type User {
       id: ID!
       accountInfo: AccountInfo!
       identifyingInfo: identifyingInfo
@@ -63,12 +63,12 @@ const typeDefs = gql`
       disabilityInfo: DisabilityInfo
     }
     # 2nd LEVEL AGGREGATES
-    type AccountInfo {
+    type Account {
       createdAt: String!
       userName: String!
       password: String!
     }
-    type IdentifyingInfo {
+    type Identity {
       fullName: String!
       email: String!
       phoneNumber: String
@@ -78,14 +78,14 @@ const typeDefs = gql`
       address: Address
       age: Int
     }
-    type ExperienceInfo {
+    type Experience {
       training: [vocationalTrainingInfo!]!
       education: [educationalInfo!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
-    type WorkPreferenceInfo {
+    type WorkPreference {
       timing: timingInfo!
       workingSpace: spaceInfo!
       tasks: tasksInfo!
@@ -93,7 +93,7 @@ const typeDefs = gql`
       flexibility: flexibilityInfo!
       teamwork: Boolean!
     }
-    type DisabilityInfo {
+    type Disability {
       employable: Boolean!
       speechAbility: Boolean!
       createdOwnProfile: Boolean!
