@@ -133,3 +133,10 @@ const userTypes = gql`
       DOCTOR
     }
   }`;
+
+module.exports = {
+   DateTimeDefinition,
+   PhoneNumberDefinition,
+   PostalCodeDefinition,
+   userTypes
+}
