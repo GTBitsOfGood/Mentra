@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, CardDeck, Card } from 'react-bootstrap';
 
 export default class Question extends Component {
 
@@ -7,21 +7,27 @@ export default class Question extends Component {
         super(props);
 
         this.state = {
-            text: "Are you willing and able to answer questions on your own?"
+            selectedAnswers: props.answers.map(answer => false)
         };
     }
-
-    render() {
-        console.log(this.state);
+    
+    render() {      
         return (
             <div>
-                <h2>{this.state.text}</h2>
-                <Form>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Yes" />
-                        <Form.Check type="checkbox" label="No" />
-                    </Form.Group>
-                </Form>
+                <h2>{this.props.text}</h2>
+                <CardDeck>
+                    {this.props.answers.map(answer => (
+                          <Card>
+                          <Card.Body>
+                            <Card.Title><Form.Check type="checkbox" label={answer.text} /></Card.Title>
+                            <Card.Img variant="bottom" src={answer.image} />
+                            <Card.Text>
+                              {answer.subtext}
+                            </Card.Text>
+                          </Card.Body>
+                        </Card>
+                    ))}
+                </CardDeck>
             </div>
         );
     }

@@ -1,0 +1,66 @@
+[
+    {
+        "progressText": "Question 1",
+        "questionText": " When applying to a job,",
+        "answers": [
+            {
+                "text": "I know how to complete a job application by myself.",
+                "subtext": "sample subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            },
+            {
+                "text": "I do not know how to complete a job application by myself.",
+                "subtext": "sample subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            }
+        ]
+    },
+    {
+        "progressText": "Question 2",
+        "questionText": "What types of opportunities are you open to?",
+        "answers": [
+            {
+                "text": "Short term (less than 6 months)",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            },
+            {
+                "text": "Long term (more than 6 months)",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            }
+        ]
+    },
+    {
+        "progressText": "Question 3",
+        "questionText": "When faced with new activities,",
+        "answers": [
+            {
+                "text": "I struggle since it's not what I'm used to.",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            },
+            {
+                "text": "I am excited to try new things.",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            }
+        ]
+    },
+    {
+        "progressText": "Question 4",
+        "questionText": "When I have to travel a distance I can't walk",
+        "answers": [
+            {
+                "text": "I can get there independently (drive, Uber, etc.)",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            },
+            {
+                "text": "I need assistance with transportation from someone else",
+                "subtext": "this is some subtext",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SNice.svg"
+            }
+        ]
+    }
+]

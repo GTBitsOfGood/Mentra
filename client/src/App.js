@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './images/Mentra logo.png';
+import logo from './images/logo.png';
 import Wizard from './components/wizard';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
