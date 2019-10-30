@@ -12,7 +12,7 @@ const typeDefs = gql`
 
     input UserInput {
       account: AccountInput!
-      identity: IdentifyingInput
+      identity: IdentityInput
       experience: ExperienceInput
       workPreference: WorkPreferenceInput
       disability: DisabilityInput
@@ -126,7 +126,7 @@ const typeDefs = gql`
       weekends: Boolean!
     }
 
-    type Space {
+    type Spaces {
       noisyEnvironment: Boolean!
       brightLights: Boolean!
       openFoodArea: Boolean!
@@ -144,7 +144,7 @@ const typeDefs = gql`
       workWithAnimals: Boolean!
     }
 
-    type Situation {
+    type Situations {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
