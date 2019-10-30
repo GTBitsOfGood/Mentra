@@ -1,0 +1,8 @@
+{
+  "name": "mentra-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mentra",
+  "license": "ISC",
+  "private": true
+}
