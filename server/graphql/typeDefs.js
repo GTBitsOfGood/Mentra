@@ -2,20 +2,20 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Query {
-      userInfo(fullName: String!): UserInfo!
+      user(fullName: String!): User!
     }
     type Mutation {
-      createUser(userInfo: UserInfoInput!): UserInfo!
-      updateUser(userInfo: UserInfoInput!): UserInfo!
+      createUser(user: UserInput!): User!
+      updateUser(user: UserInput!): User!
     }
     # INPUT TYPES
 
     input UserInput {
-      accountInfo: AccountInfoInput!
-      identifyingInfo: IdentifyingInfoInput
-      experienceInfo: ExperienceInfoInput
-      workPreferenceInfo: WorkPreferenceInfoInput
-      disabilityInfo: DisabilityInfoInput
+      account: AccountInput!
+      identity: IdentifyingInput
+      experience: ExperienceInput
+      workPreference: WorkPreferenceInput
+      disability: DisabilityInput
     }
 
     input IdentityInput {
@@ -30,19 +30,19 @@ const typeDefs = gql`
     }
 
     input ExperienceInput {
-      training: [vocationalTrainingInfo!]!
-      education: [educationalInfo!]!
+      training: [Traning!]!
+      education: [Education!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
 
     input WorkPreferenceInput {
-      timing: timingInfo!
-      workingSpace: spaceInfo!
-      tasks: tasksInfo!
-      situation: situationInfo!
-      flexibility: flexibilityInfo!
+      timing: Timing!
+      workingSpace: Space!
+      tasks: Tasks!
+      situation: Situation!
+      flexibility: Flexibility!
       teamwork: Boolean!
     }
 
@@ -53,14 +53,18 @@ const typeDefs = gql`
       diagnosis: Boolean!
     }
 
+    input educationInput {
+
+    }
+
     # TOP LEVEL AGGREGATES
     type User {
       id: ID!
-      accountInfo: AccountInfo!
-      identifyingInfo: identifyingInfo
-      experienceInfo: ExperienceInfo
-      workPreferenceInfo: WorkPreferenceInfo
-      disabilityInfo: DisabilityInfo
+      account: Account!
+      identifying: Identity
+      experience: Experience
+      workPreference: WorkPreference
+      disability: Disability
     }
     # 2nd LEVEL AGGREGATES
     type Account {
@@ -79,18 +83,18 @@ const typeDefs = gql`
       age: Int
     }
     type Experience {
-      training: [vocationalTrainingInfo!]!
-      education: [educationalInfo!]!
+      training: [Training!]!
+      education: [Education!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
     type WorkPreference {
-      timing: timingInfo!
-      workingSpace: spaceInfo!
-      tasks: tasksInfo!
-      situation: situationInfo!
-      flexibility: flexibilityInfo!
+      timing: Timing!
+      workingSpace: Space!
+      tasks: Tasks!
+      situation: Situation!
+      flexibility: Flexibility!
       teamwork: Boolean!
     }
     type Disability {
@@ -102,24 +106,27 @@ const typeDefs = gql`
 
 
     # 3rd LEVEL AGGREGATES
-    type vocationalTrainingInfo {
+    type vocationalTraining {
       name: String!
       coach: String!
       receivedEducation: Boolean!
     }
-    type educationalInfo {
+
+    type Education {
       university: String!
       degree: Degree!
       graduationYear: Int
     }
-    type timingInfo {
+
+    type Timing {
       changingHours: Boolean!
       earlyMorning: Boolean!
       standardHours: Boolean!
       lateNights: Boolean!
       weekends: Boolean!
     }
-    type spaceInfo {
+
+    type Space {
       noisyEnvironment: Boolean!
       brightLights: Boolean!
       openFoodArea: Boolean!
@@ -127,7 +134,8 @@ const typeDefs = gql`
       outdoorWork: Boolean!
       uniformWork: Boolean!
     }
-    type tasksInfo {
+
+    type Tasks {
       dataEntry: Boolean!
       drivingTasks: Boolean!
       periodStanding: Boolean!
@@ -135,7 +143,8 @@ const typeDefs = gql`
       heavyLifting: Boolean!
       workWithAnimals: Boolean!
     }
-    type situationInfo {
+
+    type Situation {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -144,7 +153,8 @@ const typeDefs = gql`
       acceptFeedback: Boolean!
       changeTasks: Boolean!
     }
-    type flexibilityInfo {
+
+    type Flexibility {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
