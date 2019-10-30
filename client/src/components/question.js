@@ -10,17 +10,34 @@ export default class Question extends Component {
             selectedAnswers: props.answers.map(answer => false)
         };
     }
-    
-    render() {      
+
+    render() {     
+        const cardStyle = {
+            maxWidth: '15rem',
+            minWidth: '15rem',
+            flex: '1',
+            fontSize: '0.8rem',
+            marginBottom: '2rem'
+        }
+
+        const cardTitleStyle = {
+            fontSize: '1rem', 
+            fontWeight: 'bold', 
+            textAlign: 'left',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '0 auto'
+        }
         return (
-            <div>
-                <h2>{this.props.text}</h2>
-                <CardDeck>
+            <div style={{width:'80%', margin:'0 auto'}}>
+                <h2 style={{margin:'2.5rem'}}>{this.props.text}</h2>
+                <CardDeck style={{display:'flex', flexDirection:'row', justifyContent: 'center'}}>
                     {this.props.answers.map(answer => (
-                          <Card>
+                          <Card style={cardStyle}>
                           <Card.Body>
-                            <Card.Title><Form.Check type="checkbox" label={answer.text} /></Card.Title>
-                            <Card.Img variant="bottom" src={answer.image} />
+                            <Card.Title style={cardTitleStyle}><Form.Check type="checkbox" label={answer.text} /></Card.Title>
+                            <Card.Img variant="bottom" src={answer.image} style={{marginTop:'2rem', marginBottom: '2rem'}}/>
                             <Card.Text>
                               {answer.subtext}
                             </Card.Text>

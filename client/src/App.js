@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './images/logo.png';
 import Wizard from './components/wizard';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +10,7 @@ function App() {
     <div className="App">
       <Container>
         <header className="rectangle">
-          <img src={logo} className="logo" alt="logo" />
+          <img src='/images/logos/logo.png' className="logo" alt="logo" />
         </header>
         <Wizard />
       </Container>
