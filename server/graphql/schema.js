@@ -1,6 +1,10 @@
+const { gql } = require('apollo-server');
+const {
+  DateTimeDefinition,
+  PhoneNumberDefinition,
+  PostalCodeDefinition,
+} = require('graphql-scalars');
 
-const { makeExecutableSchema } = require('apollo-server');
-const { scalars, resolvers } = require('graphql-scalars');
 const userTypes = gql`
     # TOP LEVEL AGGREGATES
     type accountInfo {
