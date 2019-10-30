@@ -1,11 +1,9 @@
 const { gql } = require('apollo-server');
-const {
-  DateTimeDefinition,
-  PhoneNumberDefinition,
-  PostalCodeDefinition,
-} = require('graphql-scalars');
 
-const userTypes = gql`
+const typeDefs = gql`
+    type Query {
+      signup: accountInfo
+    }
     # TOP LEVEL AGGREGATES
     type accountInfo {
       createdAt: String!
@@ -15,11 +13,11 @@ const userTypes = gql`
     type identifyingInfo {
       fullName: String!
       email: String!
-      phoneNumber: PhoneNumber
+      phoneNumber: String
       gender: Gender
       ethnicity: Ethnicity
       race: Race
-      address: String
+      address: Address
       age: Int
     }
     type experienceInfo {
@@ -105,12 +103,10 @@ const userTypes = gql`
       stateProvince: String!
       city: String!
       streetAddress: String!
-      postalCode: PostalCode
+      postalCode: String!
     }
-
-
     # ENUMS
-    enum gender {
+    enum Gender {
       FEMALE
       MALE
       # not sure what types we want to include
@@ -132,11 +128,8 @@ const userTypes = gql`
       MASTER
       DOCTOR
     }
-  }`;
+  `;
 
 module.exports = {
-   DateTimeDefinition,
-   PhoneNumberDefinition,
-   PostalCodeDefinition,
-   userTypes
+  typeDefs
 }
