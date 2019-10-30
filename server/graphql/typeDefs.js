@@ -2,15 +2,23 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Query {
-      signup: accountInfo
+      userInfo(fullName: String!): UserInfo
     }
     # TOP LEVEL AGGREGATES
-    type accountInfo {
+    type UserInfo {
+      accountInfo: AccountInfo!
+      identifyingInfo: identifyingInfo!
+      experienceInfo: ExperienceInfo!
+      workPreferenceInfo: WorkPreferenceInfo!
+      disabilityInfo: DisabilityInfo!
+    }
+    # 2nd LEVEL AGGREGATES
+    type AccountInfo {
       createdAt: String!
       userName: String!
       password: String!
     }
-    type identifyingInfo {
+    type IdentifyingInfo {
       fullName: String!
       email: String!
       phoneNumber: String
@@ -20,14 +28,14 @@ const typeDefs = gql`
       address: Address
       age: Int
     }
-    type experienceInfo {
+    type ExperienceInfo {
       training: [vocationalTrainingInfo!]!
       education: [educationalInfo!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
-    type workPreferenceInfo {
+    type WorkPreferenceInfo {
       timing: timingInfo!
       workingSpace: spaceInfo!
       tasks: tasksInfo!
@@ -35,7 +43,7 @@ const typeDefs = gql`
       flexibility: flexibilityInfo!
       teamwork: Boolean!
     }
-    type disabilityInfo {
+    type DisabilityInfo {
       employable: Boolean!
       speechAbility: Boolean!
       createdOwnProfile: Boolean!
@@ -43,7 +51,7 @@ const typeDefs = gql`
     }
 
 
-    # SECOND LEVEL AGGREGATES
+    # 3rd LEVEL AGGREGATES
     type vocationalTrainingInfo {
       name: String!
       coach: String!
