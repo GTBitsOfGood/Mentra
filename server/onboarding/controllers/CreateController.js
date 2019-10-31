@@ -2,6 +2,13 @@ const UserInfo = require("../modles/UserSchema");
 const crypto = require('crypto');
 
 module.exports = {
+    /**
+     *  create a user using either post or get request
+     *  required parameter: userName, passWord, and email
+     *  createGet => get request
+     *  createPost => post request
+     * 
+     */
     createPost: (req, res) => {
         const userName = String(req.query.userName);
         const password = String(req.query.passWord);

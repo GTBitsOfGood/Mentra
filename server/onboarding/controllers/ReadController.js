@@ -1,6 +1,12 @@
 const UserInfo = require("../modles/UserSchema");
 
 module.exports = {
+    /**
+     *  read users which meet a certain key value pair contition 
+     *  using either post or get request 
+     *  required parameter: key, value
+     * 
+     */
     readPost: (req, res) => {
         console.log("Called");
         const key = String(req.body.key);

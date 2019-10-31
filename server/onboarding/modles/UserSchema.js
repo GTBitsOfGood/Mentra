@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ *  Each entry in the schema is something related to the information 
+ *  needed at each step
+ */
 const UserSchema = new Schema({
     accountInfo: {
         createdAt: Date,

@@ -1,18 +1,12 @@
 const UserInfo = require("../modles/UserSchema");
 
-/*
-    API LIST:
-        updatePost
-            body: {
-                srcKey, srcVal, tarKey, tarVal
-            }
-        updateGet
-            qeury: {
-                srcKey, srcVal, tarKey, tarVal
-            }
-*/
-
 module.exports = {
+    /**
+     *  Update a user using either post or get request
+     *  filtering with a key-value pair
+     *  required parameter: key, value
+     * 
+     */
     updatePost: (req, res) => {
         console.log("Called");
         const srcKey = String(req.body.srcKey);

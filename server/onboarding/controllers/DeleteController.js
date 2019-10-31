@@ -1,6 +1,11 @@
 const UserInfo = require("../modles/UserSchema");
 
 module.exports = {
+    /**
+     *  delete a user using either post or get request
+     *  required parameter: key, value (key value pair in the schema)
+     * 
+     */
     deletePost: (req, res) => {
         console.log("Called");
         const key = String(req.body.key);
