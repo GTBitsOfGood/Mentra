@@ -6,7 +6,13 @@ const typeDefs = gql`
     }
     type Mutation {
       createUser(user: UserInput!): User!
-      updateUser(user: UserInput!): User!
+      createIdentity(userId: ID!, identity: IdentityInput!): User!
+      updateIdentity(userId: ID!, identity: IdentityInput!): User!
+      addExperience(userId: ID!, experience: experienceInput!): User!
+      updateExperience(userId: ID!, experience: experienceInput!): User!
+      createWorkPreference(userId: ID!, workPreference: workPreferenceInput!): User!
+      updateWorkPreference(userId: ID!, workPreference: workPreferenceInput!): User!
+      creteDisabilityInput(userId: ID!, disability: DisabilityInput!)
     }
     # INPUT TYPES
 
@@ -54,7 +60,9 @@ const typeDefs = gql`
     }
 
     input educationInput {
-
+      university: String!
+      degree: Degree!
+      graduationYear: Int
     }
 
     # TOP LEVEL AGGREGATES
@@ -70,6 +78,7 @@ const typeDefs = gql`
     type Account {
       createdAt: String!
       userName: String!
+      email: String!
       password: String!
     }
     type Identity {
