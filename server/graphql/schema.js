@@ -13,7 +13,6 @@ const typeDefs = gql`
     # INPUT TYPES
 
     input UserInput {
-      id: ID!
       account: AccountInput!
       identity: IdentityInput
       experience: ExperienceInput
