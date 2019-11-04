@@ -8,7 +8,7 @@ const typeDefs = gql`
       createUser(user: UserInput!): User!
       updateUser(id: ID!, user: UserInput!): User!
       deleteUser(id: ID!): ID!
-      updateWorkPreference(id: ID!, workPreference: workPreferenceInput!): User!
+      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
     }
     # INPUT TYPES
 
