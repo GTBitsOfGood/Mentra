@@ -24,15 +24,15 @@ const typeDefs = gql`
       fullName: String!
       email: String!
       phoneNumber: String
-      gender: GenderInput
-      ethnicity: EthnicityInput
-      race: RaceInput
+      gender: Gender
+      ethnicity: Ethnicity
+      race: Race
       address: AddressInput
       age: Int
     }
 
     input ExperienceInput {
-      training: [TraningInput!]!
+      training: [TrainingInput!]!
       education: [Educationinput!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
@@ -55,13 +55,13 @@ const typeDefs = gql`
       diagnosis: Boolean!
     }
 
-    input educationInput {
+    input EducationInput {
       university: String!
       degree: Degree!
       graduationYear: Int
     }
 
-    type vocationalTrainingInput {
+    type TrainingInput {
       name: String!
       coach: String!
       receivedEducation: Boolean!
@@ -177,7 +177,7 @@ const typeDefs = gql`
 
 
     # 3rd LEVEL AGGREGATES
-    type vocationalTraining {
+    type Training {
       name: String!
       coach: String!
       receivedEducation: Boolean!
