@@ -20,20 +20,27 @@ const typeDefs = gql`
       disability: DisabilityInput
     }
 
+    input AccountInput {
+      id: ID!
+      createdAt: String!
+      userName: String!
+      email: String!
+      password: String!
+    }
+
     input IdentityInput {
       fullName: String!
       email: String!
       phoneNumber: String
       gender: Gender
       ethnicity: Ethnicity
-      race: Race
       address: AddressInput
       age: Int
     }
 
     input ExperienceInput {
       training: [TrainingInput!]!
-      education: [Educationinput!]!
+      education: [EducationInput!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
@@ -43,7 +50,7 @@ const typeDefs = gql`
       timing: TimingInput!
       workingSpace: SpacesInput!
       tasks: TasksInput!
-      situation: SituationInput!
+      situation: SituationsInput!
       flexibility: FlexibilityInput!
       teamwork: Boolean!
     }
@@ -55,25 +62,19 @@ const typeDefs = gql`
       diagnosis: Boolean!
     }
 
+    input TrainingInput {
+      name: String!
+      coach: String!
+      receivedEducation: Boolean!
+    }
+
     input EducationInput {
       university: String!
       degree: Degree!
       graduationYear: Int
     }
 
-    type TrainingInput {
-      name: String!
-      coach: String!
-      receivedEducation: Boolean!
-    }
-
-    type EducationInput {
-      university: String!
-      degree: Degree!
-      graduationYear: Int
-    }
-
-    type TimingInput {
+    input TimingInput {
       changingHours: Boolean!
       earlyMorning: Boolean!
       standardHours: Boolean!
@@ -81,7 +82,7 @@ const typeDefs = gql`
       weekends: Boolean!
     }
 
-    type SpacesInput {
+    input SpacesInput {
       noisyEnvironment: Boolean!
       brightLights: Boolean!
       openFoodArea: Boolean!
@@ -90,7 +91,7 @@ const typeDefs = gql`
       uniformWork: Boolean!
     }
 
-    type TasksInput {
+    input TasksInput {
       dataEntry: Boolean!
       drivingTasks: Boolean!
       periodStanding: Boolean!
@@ -99,7 +100,7 @@ const typeDefs = gql`
       workWithAnimals: Boolean!
     }
 
-    type SituationsInput {
+    input SituationsInput {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -109,7 +110,7 @@ const typeDefs = gql`
       changeTasks: Boolean!
     }
 
-    type FlexibilityInput {
+    input FlexibilityInput {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -119,7 +120,7 @@ const typeDefs = gql`
       changeTasks: Boolean!
     }
 
-    type AddressInput {
+    input AddressInput {
       country: String!
       stateProvince: String!
       city: String!
@@ -149,7 +150,6 @@ const typeDefs = gql`
       phoneNumber: String
       gender: Gender
       ethnicity: Ethnicity
-      race: Race
       address: Address
       age: Int
     }
@@ -162,9 +162,9 @@ const typeDefs = gql`
     }
     type WorkPreference {
       timing: Timing!
-      workingSpace: Space!
+      workingSpace: Spaces!
       tasks: Tasks!
-      situation: Situation!
+      situation: Situations!
       flexibility: Flexibility!
       teamwork: Boolean!
     }
