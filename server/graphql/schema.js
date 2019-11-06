@@ -21,7 +21,6 @@ const typeDefs = gql`
     }
 
     input AccountInput {
-      id: ID!
       createdAt: String!
       userName: String!
       email: String!
