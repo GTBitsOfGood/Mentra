@@ -14,7 +14,10 @@ module.exports = {
                     console.log(docs);
                     res.send(docs);
                 })
-                .catch(err => console.log(err));
+                .catch(err =>  {
+                    console.log(err);
+                    res.send("error");    
+                });
     },
     deleteGet: (req, res) => {
         const key = String(req.query.key);
