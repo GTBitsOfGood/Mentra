@@ -11,7 +11,14 @@ export default class Question extends Component {
         };
     }
 
-    render() {     
+    handleCheck = (answerText, e) => {
+        this.setState({
+            [answerText]: e.target.checked
+        })
+    }
+
+    render() {
+        console.log(this.state); 
         const cardStyle = {
             maxWidth: '15rem',
             minWidth: '15rem',
@@ -36,7 +43,7 @@ export default class Question extends Component {
                     {this.props.answers.map(answer => (
                           <Card style={cardStyle}>
                           <Card.Body>
-                            <Card.Title style={cardTitleStyle}><Form.Check type="checkbox" label={answer.text} /></Card.Title>
+                            <Card.Title style={cardTitleStyle}><Form.Check type="checkbox" label={answer.text} checked={this.state[answer.text]} onChange={(e) => this.handleCheck(answer.text, e)}/></Card.Title>
                             <Card.Img variant="bottom" src={answer.image} style={{marginTop:'2rem', marginBottom: '2rem'}}/>
                             <Card.Text>
                               {answer.subtext}
