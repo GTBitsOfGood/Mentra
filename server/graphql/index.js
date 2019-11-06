@@ -1,7 +1,7 @@
 const { ApolloServer, makeExecutableSchema } = require('apollo-server')
 const { typeDefs } = require('./schema')
 
-const MONGO_CONNECTOR_URL = 'http://name.domain'
+const MONGO_CONNECTOR_URL = 'http://localhost:5000'
 
 
 const resolvers = {}
@@ -18,5 +18,5 @@ const server = new ApolloServer({
 });
 
 server.listen().then(({ url}) => {
-  console.log(`🚀  Server ready at ${url}`)
+  console.log(`🚀 GraphQL Server ready at ${url}`)
 })
