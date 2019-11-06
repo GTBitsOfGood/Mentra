@@ -1,10 +1,18 @@
-const { ApolloServer, makeExecutableSchema } = require('apollo-server');
-const { typeDefs } = require('./typeDefs');
+const { ApolloServer, makeExecutableSchema } = require('apollo-server')
+const { typeDefs } = require('./schema')
 
-resolvers = {}
+const MONGO_CONNECTOR_URL = 'http://name.domain'
+
+
+const resolvers = {}
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // TODO: Auth payload from auth headers goes into context
+  context: request => {
+    return {
+      ...request,
+      MONGO_CONNECTOR_URL
+    }
+  }
 });

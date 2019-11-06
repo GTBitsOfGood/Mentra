@@ -2,11 +2,13 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Query {
-      user(fullName: String!): User!
+      readUser(id: ID!): User!
     }
     type Mutation {
       createUser(user: UserInput!): User!
-      updateUser(user: UserInput!): User!
+      updateUser(id: ID!, user: UserInput!): User!
+      deleteUser(id: ID!): ID!
+      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
     }
     # INPUT TYPES
 
@@ -25,24 +27,24 @@ const typeDefs = gql`
       gender: Gender
       ethnicity: Ethnicity
       race: Race
-      address: Address
+      address: AddressInput
       age: Int
     }
 
     input ExperienceInput {
-      training: [Traning!]!
-      education: [Education!]!
+      training: [TrainingInput!]!
+      education: [Educationinput!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
 
     input WorkPreferenceInput {
-      timing: Timing!
-      workingSpace: Space!
-      tasks: Tasks!
-      situation: Situation!
-      flexibility: Flexibility!
+      timing: TimingInput!
+      workingSpace: SpacesInput!
+      tasks: TasksInput!
+      situation: SituationInput!
+      flexibility: FlexibilityInput!
       teamwork: Boolean!
     }
 
@@ -53,8 +55,76 @@ const typeDefs = gql`
       diagnosis: Boolean!
     }
 
-    input educationInput {
+    input EducationInput {
+      university: String!
+      degree: Degree!
+      graduationYear: Int
+    }
 
+    type TrainingInput {
+      name: String!
+      coach: String!
+      receivedEducation: Boolean!
+    }
+
+    type EducationInput {
+      university: String!
+      degree: Degree!
+      graduationYear: Int
+    }
+
+    type TimingInput {
+      changingHours: Boolean!
+      earlyMorning: Boolean!
+      standardHours: Boolean!
+      lateNights: Boolean!
+      weekends: Boolean!
+    }
+
+    type SpacesInput {
+      noisyEnvironment: Boolean!
+      brightLights: Boolean!
+      openFoodArea: Boolean!
+      indoorWork: Boolean!
+      outdoorWork: Boolean!
+      uniformWork: Boolean!
+    }
+
+    type TasksInput {
+      dataEntry: Boolean!
+      drivingTasks: Boolean!
+      periodStanding: Boolean!
+      socialInteraction: Boolean!
+      heavyLifting: Boolean!
+      workWithAnimals: Boolean!
+    }
+
+    type SituationsInput {
+      manyTasks: Boolean!
+      tightdeadlines: Boolean!
+      longWorkPeriods: Boolean!
+      workOnTeams: Boolean!
+      workAlone: Boolean!
+      acceptFeedback: Boolean!
+      changeTasks: Boolean!
+    }
+
+    type FlexibilityInput {
+      manyTasks: Boolean!
+      tightdeadlines: Boolean!
+      longWorkPeriods: Boolean!
+      workOnTeams: Boolean!
+      workAlone: Boolean!
+      acceptFeedback: Boolean!
+      changeTasks: Boolean!
+    }
+
+    type AddressInput {
+      country: String!
+      stateProvince: String!
+      city: String!
+      streetAddress: String!
+      postalCode: String!
     }
 
     # TOP LEVEL AGGREGATES
@@ -70,6 +140,7 @@ const typeDefs = gql`
     type Account {
       createdAt: String!
       userName: String!
+      email: String!
       password: String!
     }
     type Identity {
@@ -106,7 +177,7 @@ const typeDefs = gql`
 
 
     # 3rd LEVEL AGGREGATES
-    type vocationalTraining {
+    type Training {
       name: String!
       coach: String!
       receivedEducation: Boolean!
@@ -180,15 +251,13 @@ const typeDefs = gql`
       # not sure what types we want to include
     }
     enum Ethnicity {
-      LATINX
-      NOT_LATINX
-    }
-    enum Race {
       AMERICAN_INDIAN
       ASIAN
       AFRICAN_AMERICAN
+      LATINX
       PACIFIC_ISLANDER
       WHITE
+      MULTIRACIAL
     }
     enum Degree {
       ASSOCIATE
