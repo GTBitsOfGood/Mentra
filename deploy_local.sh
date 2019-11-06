@@ -1,7 +1,7 @@
 #!/bin/sh
 # deploy everything on localhost
 # install node stuff for both backends
-sh ./deploy_mongo_local.sh
+[ -z $1 ] && sh ./deploy_mongo_local.sh
 cd server/graphql && yarn install
 cd ../onboarding && npm install
 cd ../..
