@@ -1,8 +1,14 @@
 const axios = require('axios')
 
 function createUser(parent, args, context, info) {
-  return axios.post(`${context.MONGO_CONNECTOR_URL}/createGet`, {
+  return axios.post(`${context.MONGO_CONNECTOR_URL}/createPost`, {
     ...args.user
-    // maybe something else???
+  })
+}
+
+function updateUser(parent, args, context, info) {
+  return axios.post(`${context.MONGO_CONNECTOR_URL}/createPost`, {
+    ...args.id,
+    ...args.workPreference
   })
 }
