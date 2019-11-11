@@ -21,9 +21,18 @@ module.exports = {
         UserInfo.update(obj, obj1)
                 .then(docs => {
                     console.log(docs);
-                    res.send(docs);
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
+                });
     },
     updateGet: (req, res) => {
         console.log("Called");
@@ -39,8 +48,17 @@ module.exports = {
         UserInfo.update(obj, obj1)
                 .then(docs => {
                     console.log(docs);
-                    res.send(docs);
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    res.send({
+                        'success': false,
+                        'content': err
+                    });
+                });
     }
 }

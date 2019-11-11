@@ -16,13 +16,19 @@ module.exports = {
         UserInfo.update({ _id: userId }, {"workPreference": workPreference})
                 .then(docs => {
                     console.log(docs);
-                    res.send(docs);
+                    res.send({
+                        'success': true,
+                        'content': 'Updated Work Preference!'
+                    });
                     // res.send("Successfully updated");
                 })
                 .catch(
                     err => {
                         console.log(err);
-                        res.send("error");
+                        res.send({
+                            'success': false,
+                            'content': err
+                        });
                 });
     }
 };
