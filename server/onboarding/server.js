@@ -7,13 +7,13 @@ const mongoose = require('mongoose');
 const routes = require('./routes/route');
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', routes);
 
-const mongoDB = 'mongodb://localhost:27017/mentra';
+const mongoDB = 'mongodb://0.0.0.0:27017/mentra';
 mongoose.connect(mongoDB, { useNewUrlParser: true }, err => {
-    if (err) 
+    if (err)
         throw err;
 });
 
@@ -27,4 +27,4 @@ app.get('/deleteGet', DeleteController.deleteGet);
 app.get('/updateGet', UpdateController.updateGet);
 */
 
-app.listen(port, () => console.log('Server started at port 5000'))
+app.listen(port, () => console.log(`📗 Mongo Connector ready on port ${port}`))

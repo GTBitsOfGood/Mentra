@@ -1,0 +1,13 @@
+{
+  "name": "mentra-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mentra",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "apollo-server": "^2.9.7",
+    "axios": "^0.19.0",
+    "graphql": "^14.5.8"
+  }
+}
