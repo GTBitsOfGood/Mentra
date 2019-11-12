@@ -1,18 +1,12 @@
 const UserInfo = require("../modles/UserSchema");
 
-/*
-    API LIST:
-        updatePost
-            body: {
-                srcKey, srcVal, tarKey, tarVal
-            }
-        updateGet
-            qeury: {
-                srcKey, srcVal, tarKey, tarVal
-            }
-*/
-
 module.exports = {
+    /**
+     *  Update a user using either post or get request
+     *  filtering with a key-value pair
+     *  required parameter: key, value
+     * 
+     */
     updatePost: (req, res) => {
         console.log("Called");
         const srcKey = String(req.body.srcKey);
@@ -27,9 +21,18 @@ module.exports = {
         UserInfo.update(obj, obj1)
                 .then(docs => {
                     console.log(docs);
-                    res.send(docs);
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
+                });
     },
     updateGet: (req, res) => {
         console.log("Called");
@@ -45,8 +48,17 @@ module.exports = {
         UserInfo.update(obj, obj1)
                 .then(docs => {
                     console.log(docs);
-                    res.send(docs);
+                    res.send({
+                        'success': false,
+                        'content': JSON.stringify(docs)
+                    });
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err)
+                    res.send({
+                        'success': false,
+                        'content': err
+                    });
+                });
     }
 }

@@ -2,6 +2,13 @@ const UserInfo = require("../modles/UserSchema");
 const crypto = require('crypto');
 
 module.exports = {
+    /**
+     *  create a user using either post or get request
+     *  required parameter: userName, passWord, and email
+     *  createGet => get request
+     *  createPost => post request
+     * 
+     */
     createPost: (req, res) => {
         const userName = String(req.query.userName);
         const password = String(req.query.passWord);
@@ -20,12 +27,18 @@ module.exports = {
         console.log(newUser);
         newUser.save((err) => {
             if (err) {
-                res.send("Error!")
+                res.send({
+                    'success': false,
+                    'content': err
+                });
                 throw err;
             }
             console.log('UserInfo stored!' + newUser._id);
         });
-        res.send("Saved!");
+        res.send({
+            'success': true,
+            'content': 'saved'
+        });
     },
     createGet: (req, res) => {
         const userName = String(req.query.userName);
@@ -45,11 +58,17 @@ module.exports = {
         console.log(newUser);
         newUser.save((err) => {
             if (err) {
-                res.send("Error!")
+                res.send({
+                    'success': false,
+                    'content': err
+                })
                 throw err;
             }
             console.log('UserInfo stored!' + newUser._id);
         });
-        res.send("Saved!");
+        res.send({
+            'success': true,
+            'content': 'saved'
+        });
     }
 }

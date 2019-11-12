@@ -1,0 +1,9 @@
+{
+    "userId" : "5d7eefb251e933ee40e39ee4",
+    "workPreferenceInfo" : {
+        "ableToDoApplication" : true,
+        "timing": {
+            "changingHours": true
+        }
+    }
+}
