@@ -6,22 +6,11 @@ const typeDefs = gql`
     }
     type Mutation {
       createUser(user: InitInput!): Message!
-      updateUser(id: ID!, keyValPair: KeyValuePair!): Message!
-      updateUserKeyVal(filterPair: KeyValuePair!, targetPair: KeyValuePair!): Message!
+      updateUser(id: ID, filter: UserInput, user: UserInput!): Message!
       deleteUser(id: ID!): Message!
       updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): Message!
     }
     # INPUT TYPES
-
-    type Message {
-      success: Boolean!,
-      content: String!
-    }
-
-    input KeyValuePair {
-      key: String!,
-      value: String!
-    }
 
     input InitInput {
       userName: String!,
