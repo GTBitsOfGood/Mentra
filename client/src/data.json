@@ -1,0 +1,205 @@
+[
+    {
+        "questionID": "JobApplication",
+        "progressText": "1",
+        "questionText": " When applying to a job,",
+        "answers": [
+            {
+                "text": "I know how to complete a job application by myself.",
+                "image": "/images/answers/question1/answer1.svg"
+            },
+            {
+                "text": "I do not know how to complete a job application by myself.",
+                "image": "/images/answers/question1/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "OppurtunityType",
+        "progressText": "2",
+        "questionText": "What types of opportunities are you open to?",
+        "answers": [
+            {
+                "text": "Short term (less than 6 months)",
+                "image": "/images/answers/question2/answer1.svg"
+            },
+            {
+                "text": "Long term (more than 6 months)",
+                "image": "/images/answers/question2/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "NewActivities",
+        "progressText": "3",
+        "questionText": "When faced with new activities,",
+        "answers": [
+            {
+                "text": "I struggle since it's not what I'm used to.",
+                "image": "/images/answers/question3/answer1.svg"
+            },
+            {
+                "text": "I am excited to try new things.",
+                "image": "/images/answers/question3/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "DistanceTravel",
+        "progressText": "4",
+        "questionText": "When I have to travel a distance I can't walk",
+        "answers": [
+            {
+                "text": "I can get there independently (drive, Uber, etc.)",
+                "image": "/images/answers/question4/answer1.svg"
+            },
+            {
+                "text": "I need assistance with transportation from someone else",
+                "image": "/images/answers/question4/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "Diagnosis",
+        "progressText": "5",
+        "questionText": "What are you diagnosed with? Select all that apply.",
+        "answers": [
+            {
+                "text": "Autism",
+                "image": "/images/answers/question4/answer1.svg"
+            },
+            {
+                "text": "Asperger's",
+                "image": "/images/answers/question4/answer2.svg"
+            },
+            {
+                "text": "Learning Disability",
+                "image": "/images/answers/question4/answer2.svg"
+            },
+            {
+                "text": "ADD/ADHD",
+                "image": "/images/answers/question4/answer2.svg"
+            },
+            {
+                "text": "Other",
+                "image": "/images/answers/question4/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "AnswerVerbally",
+        "progressText": "6",
+        "questionText": "Are you willing and able to answer questions verbally on your own?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question6/answer1.svg"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question6/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "FillingYourself",
+        "progressText": "7",
+        "questionText": "Are you filling this application out yourself?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question7/answer1.svg"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question7/answer2.svg"
+            },
+            {
+                "text": "I'm filling this out with the help of my communication regulation partner.",
+                "image": "/images/answers/question7/answer3.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "Break",
+        "progressText": "8",
+        "questionText": "Preparing for Success",
+        "answers": [
+            {
+                "text": "This one isn't a question...",
+                "image": "/images/answers/question4/answer1.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "AvailableTimes",
+        "progressText": "9",
+        "questionText": "I can be avaliable to work during...",
+        "answers": [
+            {
+                "text": "Early Mornings",
+                "subtext": "\"I am willing and able to take a job if it requires me to work early morning shifts.\"",
+                "image": "/images/answers/question9/answer1.svg"
+            },
+            {
+                "text": "Standard Hours (9AM - 5PM)",
+                "subtext": "\"I am willing and able to take a job if it requires me to work standard business hours.\"",
+                "image": "/images/answers/question9/answer2.svg"
+            },
+            {
+                "text": "Late Nights",
+                "subtext": "\"I am willing and able to take a job if it requires me to work late night work shifts.\"",
+                "image": "/images/answers/question9/answer3.svg"
+            },
+            {
+                "text": "Weekends",
+                "subtext": "\"I am willing and able to take a job if it requires me to work weekend shifts.\"",
+                "image": "/images/answers/question9/answer4.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "Environments",
+        "progressText": "10",
+        "questionText": "I am NOT open to working in...",
+        "answers": [
+            {
+                "text": "Loud/Noisy Environments",
+                "subtext": "\"I am not willing and able to take a job if it will require me to work in environments with loud noises.\"",
+                "image": "/images/answers/question10/answer1.svg"
+            },
+            {
+                "text": "Bright/Blinking Lights",
+                "subtext": "\"I am not willing and able to take a job if it will require me to work in environments with bright or blinking lights.\"",
+                "image": "/images/answers/question10/answer2.svg"
+            },
+            {
+                "text": "Food Environments",
+                "subtext": "\"I am not willing and able to take a job if it will require me to work near or with food.\"",
+                "image": "/images/answers/question10/answer3.svg"
+            },
+            {
+                "text": "A Uniform",
+                "subtext": "\"I am not willing and able to work in a uniform that may include head gear (hard hat, hair net, etc.).\"",
+                "image": "/images/answers/question10/answer4.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "Location",
+        "progressText": "11",
+        "questionText": "I can be succesful at a job that is...",
+        "answers": [
+            {
+                "text": "Indoors",
+                "subtext": "\"I am willing and able to take a job if it requires me to work inside an office.\"",
+                "image": "/images/answers/question11/answer1.svg"
+            },
+            {
+                "text": "Outdoors",
+                "subtext": "\"I am willing and able to take a job if it requires me to work outside for any portion.\"",
+                "image": "/images/answers/question11/answer2.svg"
+            }
+        ]
+    }
+]
