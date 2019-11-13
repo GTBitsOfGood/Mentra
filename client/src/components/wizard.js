@@ -8,7 +8,7 @@ export default class Wizard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        /*this.state = {
+        this.state = {
             accountData: {
                 id: String,
                 createdAt: String,
@@ -96,7 +96,7 @@ export default class Wizard extends Component {
                 streetAddress: String,
                 postalCode: String
             }
-        }*/
+        }
     }
 
     updateUserData = (questionID, answers) => {
@@ -106,6 +106,7 @@ export default class Wizard extends Component {
 
     submitForm = () => {
         console.log("I would like to submit the form!");
+        //createUser(this.state);
         //TODO: some GraphQL magic
     }
 
