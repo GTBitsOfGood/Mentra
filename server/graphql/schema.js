@@ -5,18 +5,12 @@ const typeDefs = gql`
       readUser(id: ID!): User!
     }
     type Mutation {
-      createUser(user: InitInput!): Message!
+      createUser(user: AccountInput!): Message!
       updateUser(id: ID!, user: User!): Message!
       deleteUser(id: ID!): Message!
       updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): Message!
     }
     # INPUT TYPES
-
-    input InitInput {
-      userName: String!,
-      email: String!,
-      password: String!
-    }
 
     input UserInput {
       account: AccountInput!
@@ -27,7 +21,6 @@ const typeDefs = gql`
     }
 
     input AccountInput {
-      createdAt: String!
       userName: String!
       email: String!
       password: String!
