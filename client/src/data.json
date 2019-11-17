@@ -15,7 +15,7 @@
         ]
     },
     {
-        "questionID": "OppurtunityType",
+        "questionID": "SituationsDataWorkPeriod",
         "progressText": "2",
         "questionText": "What types of opportunities are you open to?",
         "answers": [
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "questionID": "Diagnosis",
+        "questionID": "DisabilityDataDiagnosis",
         "progressText": "5",
         "questionText": "What are you diagnosed with? Select all that apply.",
         "answers": [

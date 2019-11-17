@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
+
 import data from '../data.json';
 import StepZilla from 'react-stepzilla';
 import Question from './question';
@@ -102,11 +106,29 @@ export default class Wizard extends Component {
     updateUserData = (questionID, answers) => {
         console.log("Question: " + questionID + "\nAnswers: " + answers);
 
+        let mutableState = this.state;
+
+        switch (questionID) {
+            case "JobApplication":
+                mutableState.disabilityData = {};
+                this.setState(mutableState);
+                break;
+            case "SituationsDataWorkPeriod":
+                mutableState.situationsData.longWorkPeriods = answers[0];
+                this.setState(mutableState);
+                break;
+            case "DisabilityDataDiagnosis":
+                mutableState.disabilityData.diagnosis = answers[0];
+                this.setState(mutableState);
+                break;
+            default:
+                break;
+        }
     }
 
     submitForm = () => {
         console.log("I would like to submit the form!");
-        //createUser(this.state);
+        createUser(this.state);
         //TODO: some GraphQL magic
     }
 
