@@ -7,20 +7,32 @@ import data from '../data.json';
 import StepZilla from 'react-stepzilla';
 import Question from './question';
 
+
+const CREATE_USER = gql`
+  # define our mutation in terms of the schema mutation
+  mutation createUser($user: UserInput!) {
+    # from the returned user, get its ID
+    createUser(user: $user) {
+        user {
+            id
+        }
+    }
+  }
+`;
+
 export default class Wizard extends Component {
 
     constructor(props) {
         super(props);
         this.state = {};
         this.state = {
-            accountData: {
-                id: String,
+            account: {
                 createdAt: String,
                 userName: String,
                 email: String,
                 password: String,
             },
-            identityData: {
+            identity: {
                 fullName: String,
                 email: String,
                 phoneNumber: String,
@@ -29,37 +41,35 @@ export default class Wizard extends Component {
                 address: String,
                 age: Number
             },
-            experienceData: {
-                training: String,
-                education: String,
+            experience: {
                 legalAuthorization: Boolean,
                 sponsorship: Boolean,
                 resume: String
             },
-            disabilityData: {
+            disability: { 
                 employable: Boolean,
                 speechAbility: Boolean,
                 createdOwnProfile: Boolean,
-                diagnosis: Boolean
+                diagnosis: Boolean //DONE
             },
-            trainingData: {
+            training: {
                 name: String,
                 coach: String,
                 receivedEducation: Boolean
             },
-            educationData: {
+            education: {
                 university: String,
                 degree: String,
                 graduationYear: Number
             },
-            timingData: {
+            timing: { //DONE
                 changingHours: Boolean,
                 earlyMorning: Boolean,
                 standardHours: Boolean,
                 lateNights: Boolean,
                 weekends: Boolean,
             },
-            spacesData: {
+            spaces: { //DONE
                 noisyEnvironment: Boolean,
                 brightLights: Boolean,
                 openFoodArea: Boolean,
@@ -67,7 +77,7 @@ export default class Wizard extends Component {
                 outdoorWork: Boolean,
                 uniformWork: Boolean
             },
-            tasksData: {
+            tasks: {
                 dataEntry: Boolean,
                 drivingTasks: Boolean,
                 periodStanding: Boolean,
@@ -75,7 +85,7 @@ export default class Wizard extends Component {
                 heavyLifting: Boolean,
                 workWithAnimals: Boolean
             },
-            situationsData: {
+            situation: {
                 manyTasks: Boolean,
                 tightdeadlines: Boolean,
                 longWorkPeriods: Boolean,
@@ -84,16 +94,7 @@ export default class Wizard extends Component {
                 acceptFeedback: Boolean,
                 changeTasks: Boolean,
             },
-            flexibilityData: {
-                manyTasks: Boolean,
-                tightdeadlines: Boolean,
-                longWorkPeriods: Boolean,
-                workOnTeams: Boolean,
-                workAlone: Boolean,
-                acceptFeedback: Boolean,
-                changeTasks: Boolean
-            },
-            addressData: {
+            address: {
                 country: String,
                 stateProvince: String,
                 city: String,
@@ -106,30 +107,116 @@ export default class Wizard extends Component {
     updateUserData = (questionID, answers) => {
         console.log("Question: " + questionID + "\nAnswers: " + answers);
 
-        let mutableState = this.state;
 
         switch (questionID) {
-            case "JobApplication":
-                mutableState.disabilityData = {};
-                this.setState(mutableState);
+            case "JobApplication": // how does this map to the graphql schema?
+                this.setState({
+                    ...this.state,
+                    disabilityData: {
+
+                    }
+                });
                 break;
-            case "SituationsDataWorkPeriod":
-                mutableState.situationsData.longWorkPeriods = answers[0];
-                this.setState(mutableState);
+            case "OpportunityType":
+                this.setState({
+                    ...this.state,
+                    
+                });
                 break;
-            case "DisabilityDataDiagnosis":
-                mutableState.disabilityData.diagnosis = answers[0];
-                this.setState(mutableState);
+            case "NewActivityResponse":
+                this.setState({
+                    ...this.state,
+
+                });
                 break;
+            case "TravelResponse":
+                this.setState({
+                    ...this.state,
+
+                });
+                break;
+            case "DisabilityDiagnosis":
+                this.setState({
+                    ...this.state,
+                    disabilityData: {
+                        ...this.state.disabilityData,
+                        diagnosis: answers
+                    }
+                });
+                break;
+            case "VerbalQuestionResponse":
+                this.setState({
+                    ...this.state,
+
+                });
+                break;
+            case "IndependentApp":
+                this.setState({
+                    ...this.state,
+
+                });
+                break;
+            // TODO: Fix this question that's not really a question
+            case "NonQuestion":
+                this.setState({
+                    ...this.state,
+    
+                });
+                break;
+            case "WorkAvailability":
+                this.setState({
+                    ...this.state,
+                    timingData: answers,
+                });
+                break;
+            case "NegativeWorkScenarios":
+                this.setState({
+                    ...this.state,
+                    spaces: {
+                        ...this.state.spaces,
+                        answers
+                    }
+                });
+                break;
+            case "SuccessfulWorkScenarios":
+                this.setState({
+                    ...this.state,
+                    spaces: {
+                        ...this.state.spaces,
+                        answers
+                    }
+                });
+                break; 
             default:
                 break;
         }
     }
 
+
     submitForm = () => {
         console.log("I would like to submit the form!");
-        createUser(this.state);
-        //TODO: some GraphQL magic
+
+        const [createUser, { data }] = useMutation(CREATE_USER);
+        createUser({variables: {
+            account: this.state.account,
+            identity: this.state.identity,
+            experience: {
+                ...this.state.experience,
+                training: [
+                    this.state.training
+                ],
+                education: [
+                    this.state.education
+                ],
+            },
+            workPreference: {
+                timing: this.state.timing,
+                workingSpace: this.state.spaces,
+                tasks: this.state.tasks,
+                situation: this.state.situation,
+            },
+            disability: this.state.disability,
+        }});
     }
 
     render() {

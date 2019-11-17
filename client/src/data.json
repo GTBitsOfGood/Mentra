@@ -15,7 +15,7 @@
         ]
     },
     {
-        "questionID": "SituationsDataWorkPeriod",
+        "questionID": "OpportunityType",
         "progressText": "2",
         "questionText": "What types of opportunities are you open to?",
         "answers": [
@@ -30,7 +30,7 @@
         ]
     },
     {
-        "questionID": "NewActivities",
+        "questionID": "NewActivitiesResponse",
         "progressText": "3",
         "questionText": "When faced with new activities,",
         "answers": [
@@ -45,7 +45,7 @@
         ]
     },
     {
-        "questionID": "DistanceTravel",
+        "questionID": "TravelResponse",
         "progressText": "4",
         "questionText": "When I have to travel a distance I can't walk",
         "answers": [
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "questionID": "DisabilityDataDiagnosis",
+        "questionID": "DisabilityDiagnosis",
         "progressText": "5",
         "questionText": "What are you diagnosed with? Select all that apply.",
         "answers": [
@@ -87,7 +87,7 @@
         ]
     },
     {
-        "questionID": "AnswerVerbally",
+        "questionID": "VerbalQuestionResponse",
         "progressText": "6",
         "questionText": "Are you willing and able to answer questions verbally on your own?",
         "answers": [
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "questionID": "FillingYourself",
+        "questionID": "IndependentApp",
         "progressText": "7",
         "questionText": "Are you filling this application out yourself?",
         "answers": [
@@ -121,18 +121,13 @@
         ]
     },
     {
-        "questionID": "Break",
+        "questionID": "NonQuestion",
         "progressText": "8",
         "questionText": "Preparing for Success",
-        "answers": [
-            {
-                "text": "This one isn't a question...",
-                "image": "/images/answers/question4/answer1.svg"
-            }
-        ]
+        "answers": []
     },
     {
-        "questionID": "AvailableTimes",
+        "questionID": "WorkAvailability",
         "progressText": "9",
         "questionText": "I can be avaliable to work during...",
         "answers": [
@@ -159,7 +154,7 @@
         ]
     },
     {
-        "questionID": "Environments",
+        "questionID": "NegativeWorkScenarios",
         "progressText": "10",
         "questionText": "I am NOT open to working in...",
         "answers": [
@@ -186,7 +181,7 @@
         ]
     },
     {
-        "questionID": "Location",
+        "questionID": "SuccessfulWorkScenarios",
         "progressText": "11",
         "questionText": "I can be succesful at a job that is...",
         "answers": [
@@ -199,6 +194,123 @@
                 "text": "Outdoors",
                 "subtext": "\"I am willing and able to take a job if it requires me to work outside for any portion.\"",
                 "image": "/images/answers/question11/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "WillingToCompleteTasks",
+        "progressText": "12",
+        "questionText": "I am willing and able to complete tasks that require...",
+        "answers": [
+            {
+                "text": "Computer Work or Data Entry",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on a computer.\"",
+                "image": "/images/answers/question12/answer1.svg"
+            },
+            {
+                "text": "Communicating Info to Others",
+                "subtext": "\"I am willing and able to take a job if it requires me to frequently communicate information.\"",
+                "image": "/images/answers/question12/answer2.svg"
+            },
+            {
+                "text": "Driving a Vehicle",
+                "subtext": "\"I am willing and able to take a job if it requires driving a vehicle.\"",
+                "image": "/images/answers/question12/answer3.svg"
+            },
+            {
+                "text": "Standing for Long Periods",
+                "subtext": "\"I am willing and able to take a job if it requires me to stand for long periods of time.\"",
+                "image": "/images/answers/question12/answer4.svg"
+            },
+            {
+                "text": "Heavy Lifting",
+                "subtext": "\"I am willing and able to take a job if it requires me to lift heavy objects.\"",
+                "image": "/images/answers/question12/answer5.svg"
+            },
+            {
+                "text": "Working with Animals",
+                "subtext": "\"I am willing and able to take a job if it requires me to work with animals.\"",
+                "image": "/images/answers/question12/answer6.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "SuccessfulSituations",
+        "progressText": "13",
+        "questionText": "I can do well in situations where I must...",
+        "answers": [
+            {
+                "text": "Work on Many Tasks at Once",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on many tasks at once.\"",
+                "image": "/images/answers/question13/answer1.svg"
+            },
+            {
+                "text": "Work on Tight Deadlines",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on tasks quickly.\"",
+                "image": "/images/answers/question13/answer2.svg"
+            },
+            {
+                "text": "Work for Periods Without Help",
+                "subtext": "\"I am willing and able to take a job even if people can't answer my questions for long periods of time.\"",
+                "image": "/images/answers/question13/answer3.svg"
+            },
+            {
+                "text": "Accept Feedback and Constructive Criticism",
+                "subtext": "\"I am willing and able to take a job where others make suggestions about my work without asking me for advice.\"",
+                "image": "/images/answers/question13/answer4.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "WorkWellIn",
+        "progressText": "14",
+        "questionText": "I can work well...",
+        "answers": [
+            {
+                "text": "On a Team",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on a team of people to accomplish tasks.\"",
+                "image": "/images/answers/question14/answer1.svg"
+            },
+            {
+                "text": "By Myself",
+                "subtext": "\"I am willing and able to take a job if it requires me to work alone to accomplish tasks.\"",
+                "image": "/images/answers/question14/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "SaveProgress",
+        "progressText": "15",
+        "questionText": "Covering some basics. Save your progress and come back tomorrow :)",
+        "answers": []
+    },
+    {
+        "questionID": "LegalAuthorization",
+        "progressText": "16",
+        "questionText": "Are you legally authorized to work in the United States?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question16/answer1.png"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question16/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "RequireSponsorship",
+        "progressText": "17",
+        "questionText": "Will you now or in the future require sponsorship for employment visa status (e.g. H-1B visa)?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question17/answer1.svg"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question17/answer2.svg"
             }
         ]
     }
