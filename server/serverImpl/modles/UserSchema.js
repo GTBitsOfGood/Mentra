@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
  *  needed at each step
  */
 const UserSchema = new Schema({
-    accountInfo: {
+    account: {
         createdAt: Date,
         userName: String,
         password: String

@@ -18,17 +18,11 @@ module.exports = {
         UserInfo.find(obj)
                 .then(docs => {
                     console.log(docs);
-                    res.send({
-                        'success': true,
-                        'content': JSON.stringify(docs)
-                    });
+                    res.send(docs);
                 })
                 .catch(err => {
                     console.log(err)
-                    res.send({
-                        'success': false,
-                        'content': err
-                    });
+                    res.send(err);
                 });
     },
     readGet: (req, res) => {

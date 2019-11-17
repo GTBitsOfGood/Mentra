@@ -11,6 +11,8 @@ const routes = require('express').Router();
  */
 routes.get('/readGet', ReadController.readGet);
 
+routes.post('/readPost', ReadController.readPost)
+
 routes.get('/createGet',CreateController.createGet);
 
 routes.get('/deleteGet', DeleteController.deleteGet);
