@@ -3,7 +3,7 @@ const { typeDefs } = require('./schema')
 const Queries = require('./resolvers/Query')
 const Mutations = require('./resolvers/Mutation')
 
-const MONGO_CONNECTOR_URL = 'http://localhost:5000'
+const MONGO_CONNECTOR_URL = 'http://localhost:6000'
 
 const resolvers = {
 	Query: Queries,
