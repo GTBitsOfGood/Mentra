@@ -1,18 +1,9 @@
 const axios = require('axios')
 
 function createUser(parent, args, context, info) {
-  	return axios.post(`${context.MONGO_CONNECTOR_URL}/createPost`, {
-    	...args.user
-  	})
-}
-
-function updateUserKeyVal(parent, args, context, info) {
-	return axios.post(`${context.MONGO_CONNECTOR_URL}/updatePost`, {
-		'srckey': args.filterPair.key,
-		'srcVal': args.filterPair.value,
-		'tarKey': args.targetPair.key,
-		'tarVal': args.targetPair.value
-	})
+  return axios.get(`${context.MONGO_CONNECTOR_URL}/createGet`, {
+  	...args.user
+  })
 }
 
 function updateUser(parent, args, context, info) {
@@ -42,6 +33,5 @@ module.exports = {
 	updateWorkPreference,
 	deleteUser,
 	updateUser,
-	updateUserKeyVal,
 	createUser
 }

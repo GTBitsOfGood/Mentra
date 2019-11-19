@@ -5,8 +5,8 @@ const typeDefs = gql`
       readUser(id: ID!): User!
     }
     type Mutation {
-      createUser(user: AccountInput!): User!
-      updateUser(id: ID!, user: User!): User!
+      createUser(user: UserInput!): User!
+      updateUser(id: ID!, user: UserInput!): User!
       deleteUser(id: ID!): User!
       updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
     }
