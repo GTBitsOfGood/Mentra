@@ -1,13 +1,13 @@
 const axios = require('axios')
 
 function createUser(parent, args, context, info) {
-  return axios.post(`${context.MONGO_CONNECTOR_URL}/createGet`, {
+  return axios.post(`${context.MONGO_CONNECTOR_URL}/create`, {
   	...args.user
   })
 }
 
 function updateUser(parent, args, context, info) {
-	return axios.post(`${context.MONGO_CONNECTOR_URL}/updatePost`, {
+	return axios.post(`${context.MONGO_CONNECTOR_URL}/update`, {
 		'srckey': 'id',
 		'srcVal': args.id,
 		'tarKey': args.targetPair.key,
@@ -16,7 +16,7 @@ function updateUser(parent, args, context, info) {
 }
 
 function deleteUser(parent, args, context, info) {
-	return axios.post(`${context.MONGO_CONNECTOR_URL}/deletePost`, {
+	return axios.post(`${context.MONGO_CONNECTOR_URL}/delete`, {
 		'key': 'id',
 		'value': args.id
 	})
