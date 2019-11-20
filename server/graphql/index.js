@@ -6,8 +6,13 @@ const Mutations = require('./resolvers/Mutation')
 const MONGO_CONNECTOR_URL = 'http://localhost:5000'
 
 const resolvers = {
-	Query: Queries,
-	Mutation: Mutations
+	Query: {
+    readUser: Queries.readUser
+  },
+	Mutation: {
+    updateWorkPreference: Mutations.updateWorkPreference,
+    createUser: Mutations.createUser
+  }
 }
 
 const server = new ApolloServer({
