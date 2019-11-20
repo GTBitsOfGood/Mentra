@@ -15,6 +15,8 @@ routes.post('/readPost', ReadController.readPost)
 
 routes.get('/createGet',CreateController.createGet);
 
+routes.post('/createPost', CreateController.createPost);
+
 routes.get('/deleteGet', DeleteController.deleteGet);
 
 routes.get('/updateGet', UpdateController.updateGet);

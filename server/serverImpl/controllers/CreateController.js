@@ -10,8 +10,8 @@ module.exports = {
      * 
      */
     createPost: (req, res) => {
-        const username = String(req.query.userName);
-        const password = String(req.query.passWord);
+        const username = String(req.body.userName);
+        const password = String(req.body.password);
         //const email = String(req.query.email);
         const md5 = crypto.createHash('md5');
         const passCode = md5.update(password).digest('hex');
@@ -28,18 +28,12 @@ module.exports = {
         console.log(newUser);
         newUser.save((err) => {
             if (err) {
-                res.send({
-                    'success': false,
-                    'content': err
-                });
+                res.send(err);
                 throw err;
             }
             console.log('UserInfo stored!' + newUser._id);
-        });
-        res.send({
-            'success': true,
-            'content': 'saved'
-        });
+        })
+        res.send(newUser)
     },
     createGet: (req, res) => {
         const username = String(req.query.userName);

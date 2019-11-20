@@ -35,7 +35,7 @@ const UserSchema = new Schema({
         sponsorship: Boolean,
         resume: String, // TODO: pdf file
     },
-    workPreferenceInfo: {
+    workPreference: {
         ableToDoApplication: Boolean,
         timing: {
             changingHours: Boolean,

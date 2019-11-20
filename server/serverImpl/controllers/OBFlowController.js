@@ -8,27 +8,30 @@ module.exports = {
      *  
      */
     updateWorkPreference: (req, res) => {
-        console.log("req: ", req);
+        console.log("preference")
+        //console.log("req: ", req);
         //console.log("reqjson: ", JSON.parse(req.body));
-        const userId = String(req.body.userId);
-        const workPreference = req.body.workPreferenceInfo;
-       
-        UserInfo.update({ _id: userId }, {"workPreference": workPreference})
+        const userId = String(req.body.id);
+        query = {};
+        query["_id"] = userId;
+        //console.log(query);
+        /*UserInfo.update(obj, {$set: {workPreference: workPreference}})
                 .then(docs => {
                     console.log(docs);
-                    res.send({
-                        'success': true,
-                        'content': 'Updated Work Preference!'
-                    });
+                    res.send({_id: userId});
                     // res.send("Successfully updated");
                 })
                 .catch(
                     err => {
                         console.log(err);
-                        res.send({
-                            'success': false,
-                            'content': err
-                        });
-                });
+                        res.send(err);
+                });*/
+
+        UserInfo.findOne(query, (err, doc) => {
+            doc["workPreference"] = req.body.workPreference;
+            doc.save();
+            console.log(doc.workPreference)
+            res.send(doc);
+        })
     }
 };
