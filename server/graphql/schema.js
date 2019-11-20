@@ -45,6 +45,7 @@ const typeDefs = gql`
     }
 
     input WorkPreferenceInput {
+      didOwnApplication: Boolean!
       timing: TimingInput!
       workingSpace: SpacesInput!
       tasks: TasksInput!
@@ -154,7 +155,7 @@ const typeDefs = gql`
       resume: String
     }
     type WorkPreference {
-      didOwnApplicaiton: Boolean!
+      didOwnApplication: Boolean!
       timing: Timing!
       workingSpace: Spaces!
       tasks: Tasks!

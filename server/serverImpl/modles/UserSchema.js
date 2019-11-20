@@ -29,7 +29,7 @@ const UserSchema = new Schema({
         resume: String, // TODO: pdf file
     },
     workPreference: {
-        didOwnApplicaiton: Boolean,
+        didOwnApplication: Boolean,
         timing: {
             changingHours: Boolean,
             earlyMorning: Boolean,
