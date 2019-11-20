@@ -5,7 +5,8 @@ import { useMutation } from '@apollo/react-hooks';
 
 import data from '../data.json';
 import StepZilla from 'react-stepzilla';
-import Question from './question';
+import CardQuestion from './cardQuestion';
+import InputQuestion from './inputQuestion'
 
 
 const CREATE_USER = gql`
@@ -220,12 +221,27 @@ export default class Wizard extends Component {
     }
 
     render() {
-        let steps = data.map((question, index) => (
-            {
-                name: question.progressText,
-                component: <Question key={index} id={question.questionID} text={question.questionText} answers={question.answers} dismountCallback={this.updateUserData}></Question>
+        let steps = data.map((question, index) => {
+            var component;
+            switch (question.questionType) {
+
+                case "Card":
+                    component = <CardQuestion key={index} id={question.questionID} text={question.questionText} answers={question.answers} dismountCallback={this.updateUserData}></CardQuestion>
+                    break;
+                case "N/A":
+                    component = <h1>{question.questionText}</h1>
+                    break;
+                case "Input":
+                component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} dismountCallback={this.updateUserData}></InputQuestion>
+                    break;
+                default: 
+                    break;
             }
-        ));
+            return ({
+                name: question.progressText,
+                component: component
+            })
+        });
         return (
             <div className='step-progress'>
                 <StepZilla steps={steps} prevBtnOnLastStep={false}/>

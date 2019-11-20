@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CardDeck, Card } from 'react-bootstrap';
 
-export default class Question extends Component {
+export default class CardQuestion extends Component {
 
     constructor(props) {
         super(props);
