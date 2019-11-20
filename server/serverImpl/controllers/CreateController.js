@@ -11,19 +11,18 @@ module.exports = {
      */
     create: (req, res) => {
         const password = String(req.body.password);
+        console.log(req.body)
         //const email = String(req.query.email);
         const md5 = crypto.createHash('md5');
         const passCode = md5.update(password).digest('hex');
-        console.log(passCode);
         const today = new Date();
         const time = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         const newUser = new UserInfo({
             ...req.body,
             account: {
+                ...req.body.account,
                 createdAt: time,
-                userName: req.body.userName,
-                email: req.body.email,
-                password: passCode
+                password: passCode,
             }
         });
         console.log(newUser);
@@ -35,7 +34,7 @@ module.exports = {
                 });
                 throw err;
             }
-            console.log('UserInfo stored!' + newUser._id);
+            console.log('UserInfo stored! id: ' + newUser._id);
         });
         res.send(newUser);
     }

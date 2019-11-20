@@ -2,12 +2,14 @@ const { ApolloServer, makeExecutableSchema } = require('apollo-server')
 const { typeDefs } = require('./schema')
 const Queries = require('./resolvers/Query')
 const Mutations = require('./resolvers/Mutation')
+const User = require('./resolvers/User')
 
 const MONGO_CONNECTOR_URL = 'http://localhost:6000'
 
 const resolvers = {
 	Query: Queries,
-	Mutation: Mutations
+	Mutation: Mutations,
+	User: User,
 }
 
 const server = new ApolloServer({

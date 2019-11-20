@@ -1,8 +1,10 @@
 const axios = require('axios')
 
-function createUser(parent, args, context, info) {
+async function createUser(parent, args, context, info) {
   return axios.post(`${context.MONGO_CONNECTOR_URL}/create`, {
   	...args.user
+  }).then((res) => {
+    return res.data
   })
 }
 

@@ -130,7 +130,7 @@ const typeDefs = gql`
     type User {
       id: ID!
       account: Account!
-      identifying: Identity
+      identity: Identity
       experience: Experience
       workPreference: WorkPreference
       disability: Disability
@@ -159,6 +159,7 @@ const typeDefs = gql`
       resume: String
     }
     type WorkPreference {
+      didOwnApplicaiton: Boolean!
       timing: Timing!
       workingSpace: Spaces!
       tasks: Tasks!
@@ -224,13 +225,8 @@ const typeDefs = gql`
     }
 
     type Flexibility {
-      manyTasks: Boolean!
-      tightdeadlines: Boolean!
-      longWorkPeriods: Boolean!
-      workOnTeams: Boolean!
-      workAlone: Boolean!
-      acceptFeedback: Boolean!
-      changeTasks: Boolean!
+      dailyTasks: Boolean,
+      workingHours: Boolean,
     }
 
 
