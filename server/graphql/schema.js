@@ -5,11 +5,11 @@ const typeDefs = gql`
       readUser(id: ID!): User!
     }
     type Mutation {
-      createUser(user: InitInput!): Message!
-      updateUser(id: ID!, keyValPair: KeyValuePair!): Message!
-      updateUserKeyVal(filterPair: KeyValuePair!, targetPair: KeyValuePair!): Message!
-      deleteUser(id: ID!): Message!
-      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): Message!
+      createUser(user: AccountInput!): User!
+      updateUser(id: ID!, keyValPair: KeyValuePair!): User!
+      updateUserKeyVal(filterPair: KeyValuePair!, targetPair: KeyValuePair!): User!
+      deleteUser(id: ID!): User!
+      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
     }
     # INPUT TYPES
 
@@ -23,9 +23,8 @@ const typeDefs = gql`
       value: String!
     }
 
-    input InitInput {
+    input AccountInput {
       userName: String!,
-      email: String!,
       password: String!
     }
 
@@ -43,26 +42,25 @@ const typeDefs = gql`
       phoneNumber: String
       gender: Gender
       ethnicity: Ethnicity
-      race: Race
       address: AddressInput
       age: Int
     }
 
     input ExperienceInput {
       training: [TrainingInput!]!
-      education: [Educationinput!]!
+      education: [EducationInput!]!
       legalAuthorization: Boolean
       sponsorship: Boolean
       resume: String
     }
 
     input WorkPreferenceInput {
-      timing: TimingInput!
-      workingSpace: SpacesInput!
-      tasks: TasksInput!
-      situation: SituationInput!
-      flexibility: FlexibilityInput!
-      teamwork: Boolean!
+      timing: TimingInput
+      workingSpace: SpacesInput
+      tasks: TasksInput
+      situation: SituationInput
+      flexibility: FlexibilityInput
+      teamwork: Boolean
     }
 
     input DisabilityInput {
@@ -78,19 +76,13 @@ const typeDefs = gql`
       graduationYear: Int
     }
 
-    type TrainingInput {
+    input TrainingInput {
       name: String!
       coach: String!
       receivedEducation: Boolean!
     }
 
-    type EducationInput {
-      university: String!
-      degree: Degree!
-      graduationYear: Int
-    }
-
-    type TimingInput {
+    input TimingInput {
       changingHours: Boolean!
       earlyMorning: Boolean!
       standardHours: Boolean!
@@ -98,7 +90,7 @@ const typeDefs = gql`
       weekends: Boolean!
     }
 
-    type SpacesInput {
+    input SpacesInput {
       noisyEnvironment: Boolean!
       brightLights: Boolean!
       openFoodArea: Boolean!
@@ -107,7 +99,7 @@ const typeDefs = gql`
       uniformWork: Boolean!
     }
 
-    type TasksInput {
+    input TasksInput {
       dataEntry: Boolean!
       drivingTasks: Boolean!
       periodStanding: Boolean!
@@ -116,7 +108,7 @@ const typeDefs = gql`
       workWithAnimals: Boolean!
     }
 
-    type SituationsInput {
+    input SituationInput {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -126,7 +118,7 @@ const typeDefs = gql`
       changeTasks: Boolean!
     }
 
-    type FlexibilityInput {
+    input FlexibilityInput {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -136,7 +128,7 @@ const typeDefs = gql`
       changeTasks: Boolean!
     }
 
-    type AddressInput {
+    input AddressInput {
       country: String!
       stateProvince: String!
       city: String!
@@ -146,7 +138,7 @@ const typeDefs = gql`
 
     # TOP LEVEL AGGREGATES
     type User {
-      id: ID!
+      _id: ID!
       account: Account!
       identifying: Identity
       experience: Experience
@@ -155,10 +147,10 @@ const typeDefs = gql`
     }
     # 2nd LEVEL AGGREGATES
     type Account {
-      createdAt: String!
       userName: String!
-      email: String!
+      createdAt: String!
       password: String!
+      email: String!
     }
     type Identity {
       fullName: String!
@@ -166,7 +158,6 @@ const typeDefs = gql`
       phoneNumber: String
       gender: Gender
       ethnicity: Ethnicity
-      race: Race
       address: Address
       age: Int
     }
@@ -179,9 +170,9 @@ const typeDefs = gql`
     }
     type WorkPreference {
       timing: Timing!
-      workingSpace: Space!
+      workingSpace: Spaces!
       tasks: Tasks!
-      situation: Situation!
+      situation: Situations!
       flexibility: Flexibility!
       teamwork: Boolean!
     }
