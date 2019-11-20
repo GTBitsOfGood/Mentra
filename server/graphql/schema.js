@@ -109,13 +109,8 @@ const typeDefs = gql`
     }
 
     input FlexibilityInput {
-      manyTasks: Boolean!
-      tightdeadlines: Boolean!
-      longWorkPeriods: Boolean!
-      workOnTeams: Boolean!
-      workAlone: Boolean!
-      acceptFeedback: Boolean!
-      changeTasks: Boolean!
+      dailyTasks: Boolean!
+      workingHours: Boolean!
     }
 
     input AddressInput {
