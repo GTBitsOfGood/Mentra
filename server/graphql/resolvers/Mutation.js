@@ -5,6 +5,8 @@ async function createUser(parent, args, context, info) {
   	...args.user
   }).then((res) => {
     return res.data
+  }).catch((err) => {
+    return err
   })
 }
 
@@ -17,11 +19,15 @@ function updateUser(parent, args, context, info) {
 	})
 }
 
-function deleteUser(parent, args, context, info) {
+async function deleteUser(parent, args, context, info) {
 	return axios.post(`${context.MONGO_CONNECTOR_URL}/delete`, {
 		'key': 'id',
 		'value': args.id
-	})
+	}).then((res)) => {
+    return res.data.id
+  }).catch((err) => {
+    return err
+  })
 }
 
 function updateWorkPreference(parent, args, context, info) {

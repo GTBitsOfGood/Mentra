@@ -11,7 +11,7 @@ module.exports = {
      */
     create: (req, res) => {
         const password = String(req.body.password);
-        console.log(req.body)
+        console.log("create: " + req.body)
         //const email = String(req.query.email);
         const md5 = crypto.createHash('md5');
         const passCode = md5.update(password).digest('hex');
@@ -35,7 +35,8 @@ module.exports = {
                 throw err;
             }
             console.log('UserInfo stored! id: ' + newUser._id);
-        });
-        res.send(newUser);
+        })
+        newUser['id'] = newUser._id
+        res.send(newUser)
     }
 }
