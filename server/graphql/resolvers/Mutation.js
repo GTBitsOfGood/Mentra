@@ -33,7 +33,7 @@ async function deleteUser(parent, args, context, info) {
 
 function updateWorkPreference(parent, args, context, info) {
   	return axios.post(`${context.MONGO_CONNECTOR_URL}/obflowUpdate`, {
-    	...args.id,
+    	args.id,
     	...args.workPreference,
   	})
 }
