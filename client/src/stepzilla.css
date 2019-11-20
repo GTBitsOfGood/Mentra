@@ -6,12 +6,13 @@ ol.progtrckr {
   ol.progtrckr li {
     display: inline-block;
     text-align: center;
-    line-height: 4.5rem;
+    margin-top: 2em;
+    line-height: 3em;
     cursor: pointer;
   }
   
   ol.progtrckr li span {
-    padding: 0 1.5rem;
+    padding: 1rem;
   }
   
   @media (max-width: 650px) {
@@ -33,15 +34,16 @@ ol.progtrckr {
   
   ol.progtrckr li.progtrckr-todo {
     color: silver;
-    border-bottom: 4px solid silver;
+    border-bottom: 7px solid silver;
   }
   
   ol.progtrckr li.progtrckr-doing {
+
     color: black;
-    border-bottom: 4px solid #CCCCCC;
+    border-bottom: 7px solid #CCCCCC;
   }
   
   ol.progtrckr li.progtrckr-done {
     color: black;
-    border-bottom: 4px solid #5cb85c;
+    border-bottom: 7px solid #5cb85c;
   }

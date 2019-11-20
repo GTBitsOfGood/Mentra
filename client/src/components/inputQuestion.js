@@ -5,9 +5,7 @@ export default class InputQuestion extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-        };
+        this.state = {};
     }
 
     handleChange = (input, e) => {
@@ -27,7 +25,7 @@ export default class InputQuestion extends Component {
         return (
             <div style={{ width: '5 0%', margin: '0 auto' }}>
                 <h2 style={{ margin: '2.5rem' }}>{this.props.text}</h2>
-                <Form>
+                <Form style={{marginBottom:'3em'}}>
                     {this.props.inputs.map((input) => (
                         <Form.Group controlId="input">
                             <Form.Label style={{float: 'left'}}>{input}</Form.Label>

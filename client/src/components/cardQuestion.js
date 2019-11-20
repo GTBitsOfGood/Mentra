@@ -7,12 +7,15 @@ export default class CardQuestion extends Component {
         super(props);
 
         this.state = {
-            answers: props.answers.map(() => false)
+            answers: new Array(props.answers.length).fill(false)
         };
     }
 
     handleCheck = (index) => {
-        let updatedAnswers = this.state.answers;
+        var updatedAnswers = this.state.answers;
+        if (updatedAnswers.filter(answer => answer === true).length === this.props.maxSelections) {
+            updatedAnswers.fill(false);
+        }
         updatedAnswers[index] = !updatedAnswers[index];
         this.setState({
             answers: updatedAnswers

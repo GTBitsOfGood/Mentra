@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Jumbotron, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -8,6 +8,7 @@ import { useMutation } from '@apollo/react-hooks';
 import data from '../data.json';
 import StepZilla from 'react-stepzilla';
 import CardQuestion from './cardQuestion';
+import CheckQuestion from './checkQuestion';
 import InputQuestion from './inputQuestion';
 import Login from './login';
 
@@ -109,9 +110,6 @@ export default class Wizard extends Component {
     }
 
     updateUserData = (questionID, answers) => {
-        console.log("Question: " + questionID + "\nAnswers: " + answers);
-
-
         switch (questionID) {
             case "JobApplication": // how does this map to the graphql schema?
                 this.setState({
@@ -198,8 +196,6 @@ export default class Wizard extends Component {
 
 
     submitForm = () => {
-        console.log("I would like to submit the form!");
-
         const [createUser, { data }] = useMutation(CREATE_USER);
         createUser({variables: {
             account: this.state.account,
@@ -229,7 +225,13 @@ export default class Wizard extends Component {
             switch (question.questionType) {
 
                 case "Card":
-                    component = <CardQuestion key={index} id={question.questionID} text={question.questionText} answers={question.answers} dismountCallback={this.updateUserData}></CardQuestion>
+                    component = <CardQuestion key={index} id={question.questionID} text={question.questionText} answers={question.answers} maxSelections={question.maxSelections} dismountCallback={this.updateUserData}></CardQuestion>
+                    break;
+                case "Check":
+                    component = <CheckQuestion key={index} id={question.questionID} text={question.questionText} answers={question.answers} maxSelections={question.maxSelections} dismountCallback={this.updateUserData}></CheckQuestion>
+                    break;
+                case "Input":
+                    component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} text={question.questionText} dismountCallback={this.updateUserData}></InputQuestion>
                     break;
                 case "N/A":
                     component = <div fluid style={{margin:'3em'}}>
@@ -237,9 +239,6 @@ export default class Wizard extends Component {
                                     <p style={{margin: '2em'}}>{question.subtext}</p>
                                     <Image src={question.image} fluid></Image>
                                 </div>
-                    break;
-                case "Input":
-                    component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} text={question.questionText} dismountCallback={this.updateUserData}></InputQuestion>
                     break;
                 default: 
                     break;
