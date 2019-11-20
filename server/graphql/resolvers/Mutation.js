@@ -23,7 +23,8 @@ async function deleteUser(parent, args, context, info) {
 	return axios.post(`${context.MONGO_CONNECTOR_URL}/delete`, {
 		'key': 'id',
 		'value': args.id
-	}).then((res)) => {
+	}).then((res) => {
+    console.log(res.data.id)
     return res.data.id
   }).catch((err) => {
     return err
@@ -33,7 +34,7 @@ async function deleteUser(parent, args, context, info) {
 function updateWorkPreference(parent, args, context, info) {
   	return axios.post(`${context.MONGO_CONNECTOR_URL}/obflowUpdate`, {
     	...args.id,
-    	...args.workPreference
+    	...args.workPreference,
   	})
 }
 

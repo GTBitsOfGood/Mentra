@@ -7,27 +7,22 @@ module.exports = {
      *
      */
     delete: (req, res) => {
-        console.log("Called");
         const key = String(req.body.key);
         const value = String(req.body.value);
-        console.log("req: " + key + " " + value);
+        console.log("delete: " + key + ": " + value);
         obj = {}
         obj[key] = value
         console.log(obj)
         UserInfo.deleteOne(obj)
-                .then(docs => {
-                    console.log(docs);
-                    res.send({
-                        'success': true,
-                        'content': 'deleted!'
-                    });
-                })
-                .catch(err =>  {
-                    console.log(err);
-                    res.send({
-                        'success': false,
-                        'content': err
-                    });
-                });
+          .then(docs => {
+              res.send(obj);
+          })
+          .catch(err => {
+            console.log(err);
+            res.send({
+              'success': false,
+              'content': err
+            });
+          });
     },
 }

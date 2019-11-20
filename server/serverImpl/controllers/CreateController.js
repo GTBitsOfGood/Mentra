@@ -36,7 +36,6 @@ module.exports = {
             }
             console.log('UserInfo stored! id: ' + newUser._id);
         })
-        newUser['id'] = newUser._id
         res.send(newUser)
     }
 }
