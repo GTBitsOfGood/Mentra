@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CardDeck, Card } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 export default class InputQuestion extends Component {
 
@@ -7,31 +7,34 @@ export default class InputQuestion extends Component {
         super(props);
 
         this.state = {
-            inputs: props.inputs.map(input => String.empty)
         };
     }
 
-    handleCheck = (index) => {
-        let updatedInputs = this.state.inputs;
-        updatedInputs[index] = !updatedInputs[index];
+    handleChange = (input, e) => {
         this.setState({
-            inputs: updatedInputs
+            inputs: {
+                ...this.state.inputs,
+                [input]: e.target.value
+            }
         });
     }
 
-    componentWillUnmount() { 
-        this.props.dismountCallback(this.props.id, this.state.inputs); 
+    componentWillUnmount() {
+        this.props.dismountCallback(this.props.id, this.state.inputs);
     }
 
-    render() { 
+    render() {
         return (
-            <div style={{width:'80%', margin:'0 auto'}}>
-                <h2 style={{margin:'2.5rem'}}>{this.props.text}</h2>
-                <CardDeck style={{display:'flex', flexDirection:'row', justifyContent: 'center'}}>
-                    {this.props.inputs.map((input, index) => (
-                        <input>{input}</input>
+            <div style={{ width: '5 0%', margin: '0 auto' }}>
+                <h2 style={{ margin: '2.5rem' }}>{this.props.text}</h2>
+                <Form>
+                    {this.props.inputs.map((input) => (
+                        <Form.Group controlId="input">
+                            <Form.Label style={{float: 'left'}}>{input}</Form.Label>
+                            <Form.Control placeholder={input} onChange={(e) => this.handleChange(input, e)} />
+                        </Form.Group>
                     ))}
-                </CardDeck>
+                </Form>
             </div>
         );
     }

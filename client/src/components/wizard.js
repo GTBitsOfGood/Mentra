@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 
+import { Jumbotron, Image } from 'react-bootstrap';
+
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
 import data from '../data.json';
 import StepZilla from 'react-stepzilla';
 import CardQuestion from './cardQuestion';
-import InputQuestion from './inputQuestion'
+import InputQuestion from './inputQuestion';
+import Login from './login';
 
 
 const CREATE_USER = gql`
@@ -229,10 +232,14 @@ export default class Wizard extends Component {
                     component = <CardQuestion key={index} id={question.questionID} text={question.questionText} answers={question.answers} dismountCallback={this.updateUserData}></CardQuestion>
                     break;
                 case "N/A":
-                    component = <h1>{question.questionText}</h1>
+                    component = <div fluid style={{margin:'3em'}}>
+                                    <h1>{question.questionText}</h1>
+                                    <p style={{margin: '2em'}}>{question.subtext}</p>
+                                    <Image src={question.image} fluid></Image>
+                                </div>
                     break;
                 case "Input":
-                component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} dismountCallback={this.updateUserData}></InputQuestion>
+                    component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} text={question.questionText} dismountCallback={this.updateUserData}></InputQuestion>
                     break;
                 default: 
                     break;
@@ -242,10 +249,11 @@ export default class Wizard extends Component {
                 component: component
             })
         });
+
+        // steps.unshift({component: <Login/>});
         return (
             <div className='step-progress'>
                 <StepZilla steps={steps} prevBtnOnLastStep={false}/>
-                <button onClick={this.submitForm}>Submit</button>
             </div>
         );
     }

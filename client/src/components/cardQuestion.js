@@ -7,7 +7,7 @@ export default class CardQuestion extends Component {
         super(props);
 
         this.state = {
-            answers: props.answers.map(answer => false)
+            answers: props.answers.map(() => false)
         };
     }
 

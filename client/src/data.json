@@ -2,8 +2,8 @@
     {
         "questionID": "JobApplication",
         "questionType": "Card",
-        "progressText": "1",
         "questionText": " When applying to a job,",
+        "progressText": "Start",
         "answers": [
             {
                 "text": "I know how to complete a job application by myself.",
@@ -18,7 +18,6 @@
     {
         "questionID": "OpportunityType",
         "questionType": "Card",
-        "progressText": "2",
         "questionText": "What types of opportunities are you open to?",
         "answers": [
             {
@@ -34,7 +33,6 @@
     {
         "questionID": "NewActivitiesResponse",
         "questionType": "Card",
-        "progressText": "3",
         "questionText": "When faced with new activities,",
         "answers": [
             {
@@ -50,7 +48,6 @@
     {
         "questionID": "TravelResponse",
         "questionType": "Card",
-        "progressText": "4",
         "questionText": "When I have to travel a distance I can't walk",
         "answers": [
             {
@@ -66,7 +63,6 @@
     {
         "questionID": "DisabilityDiagnosis",
         "questionType": "Card",
-        "progressText": "5",
         "questionText": "What are you diagnosed with? Select all that apply.",
         "answers": [
             {
@@ -94,7 +90,6 @@
     {
         "questionID": "VerbalQuestionResponse",
         "questionType": "Card",
-        "progressText": "6",
         "questionText": "Are you willing and able to answer questions verbally on your own?",
         "answers": [
             {
@@ -110,7 +105,6 @@
     {
         "questionID": "IndependentApp",
         "questionType": "Card",
-        "progressText": "7",
         "questionText": "Are you filling this application out yourself?",
         "answers": [
             {
@@ -129,15 +123,14 @@
     },
     {
         "questionID": "NonQuestion",
-        "questionType": "N/A",
-        "progressText": "8",
+        "questionType": "N/A",       
         "questionText": "Preparing for Success",
-        "answers": []
+        "subtext": "There are many types of tasks and work environments that accomodate different needs. The more flexible you are the more jobs you may find, but it's important to stay true to what your capabilities are!\n\nAnswering the following questions truthfully will help us find you a meaningful job that you'll be willing and able to do well in.",
+        "image": "/images/answers/question9/answer1.svg"
     },
     {
         "questionID": "WorkAvailability",
         "questionType": "Card",
-        "progressText": "9",
         "questionText": "I can be avaliable to work during...",
         "answers": [
             {
@@ -165,7 +158,6 @@
     {
         "questionID": "NegativeWorkScenarios",
         "questionType": "Card",
-        "progressText": "10",
         "questionText": "I am NOT open to working in...",
         "answers": [
             {
@@ -193,7 +185,6 @@
     {
         "questionID": "SuccessfulWorkScenarios",
         "questionType": "Card",
-        "progressText": "11",
         "questionText": "I can be succesful at a job that is...",
         "answers": [
             {
@@ -211,7 +202,6 @@
     {
         "questionID": "WillingToCompleteTasks",
         "questionType": "Card",
-        "progressText": "12",
         "questionText": "I am willing and able to complete tasks that require...",
         "answers": [
             {
@@ -249,7 +239,6 @@
     {
         "questionID": "SuccessfulSituations",
         "questionType": "Card",
-        "progressText": "13",
         "questionText": "I can do well in situations where I must...",
         "answers": [
             {
@@ -277,7 +266,6 @@
     {
         "questionID": "WorkWellIn",
         "questionType": "Card",
-        "progressText": "14",
         "questionText": "I can work well...",
         "answers": [
             {
@@ -295,14 +283,12 @@
     {
         "questionID": "SaveProgress",
         "questionType": "N/A",
-        "progressText": "15",
         "questionText": "Covering some basics. Save your progress and come back tomorrow :)",
         "answers": []
     },
     {
         "questionID": "LegalAuthorization",
         "questionType": "Card",
-        "progressText": "16",
         "questionText": "Are you legally authorized to work in the United States?",
         "answers": [
             {
@@ -318,7 +304,6 @@
     {
         "questionID": "RequireSponsorship",
         "questionType": "Card",
-        "progressText": "17",
         "questionText": "Will you now or in the future require sponsorship for employment visa status (e.g. H-1B visa)?",
         "answers": [
             {
@@ -332,12 +317,38 @@
         ]
     },
     {
-        "questionID": "Blrgrgrg",
+        "questionID": "MostRecentJob",
         "questionType": "Input",
-        "progressText": "18",
-        "questionText": "Testing an input quetsion!",
+        "questionText": "Tell us about your most recent job",
         "inputs": [
-            "Enter something"
+            "Company",
+            "Role",
+            "Start Date",
+            "End Date",
+            "In your own words, briefly describe what you did (300 characters)"
         ]
+    },
+    {
+        "questionID": "PhoneNumber",
+        "questionType": "Input",
+        "questionText": "What is the best number to reach you at?",
+        "inputs": [
+            "Phone Number"
+        ]
+    },
+    {
+        "questionID": "MostRecentJob",
+        "questionType": "Input",
+        "questionText": "What is your ZIP code?",
+        "inputs": [
+            "ZIP Code"
+        ]
+    },
+    {
+        "questionID": "End",
+        "questionType": "N/A",
+        "progressText": "Finish",
+        "questionText": "Thanks for your time! :)",
+        "answers": []
     }
 ]
