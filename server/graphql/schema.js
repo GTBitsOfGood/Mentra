@@ -7,23 +7,12 @@ const typeDefs = gql`
     }
 
     type Mutation {
-      createUser(user: AccountInput!): User!
-      updateUser(id: ID!, keyValPair: KeyValuePair!): User!
-      updateUserKeyVal(filterPair: KeyValuePair!, targetPair: KeyValuePair!): User!
-      deleteUser(id: ID!): User!
+      createUser(user: UserInput!): User!
+      updateUser(id: ID!, user: UserInput!): User!
+      deleteUser(id: ID!): ID!
       updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
-    }
+      }
     # INPUT TYPES
-
-    type Message {
-      success: Boolean!,
-      content: String!
-    }
-
-    input KeyValuePair {
-      key: String!,
-      value: String!
-    }
 
     input AccountInput {
       userName: String!,
@@ -46,7 +35,7 @@ const typeDefs = gql`
       gender: Gender
       race: Race
       address: AddressInput
-      age: Int
+      age: Integer
     }
 
     input ExperienceInput {
@@ -77,7 +66,7 @@ const typeDefs = gql`
     input EducationInput {
       university: String!
       degree: Degree!
-      graduationYear: Int
+      graduationYear: Integer!
     }
 
     input TrainingInput {
@@ -114,12 +103,17 @@ const typeDefs = gql`
 
     input SituationInput {
       manyTasks: Boolean!
-      tightdeadlines: Boolean!
+      tightDeadlines: Boolean!
       longWorkPeriods: Boolean!
       workOnTeams: Boolean!
       workAlone: Boolean!
       acceptFeedback: Boolean!
       changeTasks: Boolean!
+    }
+
+    input flexibilityInput {
+      dailyTasks: Boolean!
+      workingHours: Boolean!
     }
 
     input AddressInput {
@@ -153,7 +147,7 @@ const typeDefs = gql`
       gender: Gender
       race: Race
       address: Address
-      age: Int
+      age: Integer
     }
     type Experience {
       training: [Training!]!
@@ -189,7 +183,7 @@ const typeDefs = gql`
     type Education {
       university: String!
       degree: Degree!
-      graduationYear: Int
+      graduationYear: Integer
     }
 
     type Timing {
@@ -220,7 +214,7 @@ const typeDefs = gql`
 
     type Situation {
       manyTasks: Boolean!
-      tightdeadlines: Boolean!
+      tightDeadlines: Boolean!
       longWorkPeriods: Boolean!
       workOnTeams: Boolean!
       workAlone: Boolean!
