@@ -19,6 +19,7 @@ const typeDefs = gql`
       experience: ExperienceInput
       workPreference: WorkPreferenceInput
       disability: DisabilityInput
+      flexibility: FlexibilityInput
     }
 
     input AccountInput {

@@ -239,6 +239,7 @@ export default class Wizard extends Component {
                     situation: this.state.situation,
                 },
                 disability: this.state.disability,
+                flexibility: this.state.flexibility,
             }
         });
     }
