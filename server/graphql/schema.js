@@ -259,6 +259,7 @@ const typeDefs = gql`
       MULTIRACIAL
       NO_ANSWER
     }
+
     enum Degree {
       ASSOCIATE
       BACHELOR
