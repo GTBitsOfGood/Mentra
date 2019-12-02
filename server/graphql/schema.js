@@ -44,7 +44,7 @@ const typeDefs = gql`
       email: String!
       phoneNumber: String
       gender: Gender
-      ethnicity: Ethnicity
+      race: Race
       address: AddressInput
       age: Int
     }
@@ -58,6 +58,7 @@ const typeDefs = gql`
     }
 
     input WorkPreferenceInput {
+      didOwnApplication: Boolean!
       timing: TimingInput!
       workingSpace: SpacesInput!
       tasks: TasksInput!
@@ -133,7 +134,7 @@ const typeDefs = gql`
     type User {
       id: ID!
       account: Account!
-      identif: Identity
+      identity: Identity
       experience: Experience
       workPreference: WorkPreference
       disability: Disability
@@ -150,7 +151,7 @@ const typeDefs = gql`
       email: String!
       phoneNumber: String
       gender: Gender
-      ethnicity: Ethnicity
+      race: Race
       address: Address
       age: Int
     }
@@ -162,6 +163,7 @@ const typeDefs = gql`
       resume: String
     }
     type WorkPreference {
+      didOwnApplication: Boolean!
       timing: Timing!
       workingSpace: Space!
       tasks: Tasks!
@@ -227,13 +229,8 @@ const typeDefs = gql`
     }
 
     type Flexibility {
-      manyTasks: Boolean!
-      tightdeadlines: Boolean!
-      longWorkPeriods: Boolean!
-      workOnTeams: Boolean!
-      workAlone: Boolean!
-      acceptFeedback: Boolean!
-      changeTasks: Boolean!
+      dailyTasks: Boolean,
+      workingHours: Boolean,
     }
 
 
@@ -245,13 +242,15 @@ const typeDefs = gql`
       streetAddress: String!
       postalCode: String!
     }
+
     # ENUMS
     enum Gender {
       FEMALE
       MALE
       # not sure what types we want to include
     }
-    enum Ethnicity {
+
+    enum Race {
       AMERICAN_INDIAN
       ASIAN
       AFRICAN_AMERICAN

@@ -6,13 +6,16 @@ const OBFlowController = require('../controllers/OBFlowController');
 
 const routes = require('express').Router();
 
-routes.get('/readGet', ReadController.readGet);
+/**
+ *
+ */
+routes.get('/read', ReadController.read);
 
-routes.get('/createGet',CreateController.createGet);
+routes.post('/create', CreateController.create);
 
-routes.get('/deleteGet', DeleteController.deleteGet);
+routes.post('/delete', DeleteController.delete);
 
-routes.get('/updateGet', UpdateController.updateGet);
+routes.post('/updateGet', UpdateController.update);
 
 routes.post('/obflowUpdate', OBFlowController.updateWorkPreference);
 

@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ *  Each entry in the schema is something related to the information
+ *  needed at each step
+ */
 const UserSchema = new Schema({
-    accountInfo: {
-        createdAt: Date,
+    account: {
+        createdAt: String,
+        email: String,
         userName: String,
-        password: String
+        password: String,
     },
-    identifyingInfo: { // TODO: encrypt this information
+    identity: { // TODO: encrypt this information
         fullName: String,
         email: String,
         phoneNumber: Number, // TODO: Phone Number type
@@ -16,23 +21,15 @@ const UserSchema = new Schema({
         address: String, //TODO: Address object
         age: Number,
     },
-    experienceInfo: {
-        vocationalTrainingInfo: {
-            name: String,
-            coach: String,
-            receivedEducation: Boolean
-        },
-        educationalInfo: {
-            university: String, 
-            highestDegree: String, // TODO: Degree enum
-            graduationYear: Number
-        },
+    experience: {
+        training: Array,
+        education: Array,
         legalAuthorization: Boolean,
         sponsorship: Boolean,
         resume: String, // TODO: pdf file
     },
-    workPreferenceInfo: {
-        ableToDoApplication: Boolean,
+    workPreference: {
+        didOwnApplication: Boolean,
         timing: {
             changingHours: Boolean,
             earlyMorning: Boolean,
