@@ -14,18 +14,18 @@ const typeDefs = gql`
       }
     # INPUT TYPES
 
-    input AccountInput {
-      userName: String!,
-      email: String!,
-      password: String!
-    }
-
     input UserInput {
       account: AccountInput!
       identity: IdentityInput
       experience: ExperienceInput
       workPreference: WorkPreferenceInput
       disability: DisabilityInput
+    }
+
+    input AccountInput {
+      userName: String!,
+      email: String!,
+      password: String!
     }
 
     input IdentityInput {
@@ -241,6 +241,7 @@ const typeDefs = gql`
     enum Gender {
       FEMALE
       MALE
+      OTHER
       # not sure what types we want to include
     }
 
