@@ -1,7 +1,9 @@
 [
     {
         "questionID": "JobApplication",
-        "progressText": "1",
+        "questionType": "Card",
+        "maxSelections": 1,
+        "progressText": "Start",
         "questionText": " When applying to a job,",
         "answers": [
             {
@@ -15,8 +17,8 @@
         ]
     },
     {
-        "questionID": "OppurtunityType",
-        "progressText": "2",
+        "questionID": "OpportunityType",
+        "questionType": "Card",
         "questionText": "What types of opportunities are you open to?",
         "answers": [
             {
@@ -30,8 +32,9 @@
         ]
     },
     {
-        "questionID": "NewActivities",
-        "progressText": "3",
+        "questionID": "NewActivitiesResponse",
+        "questionType": "Card",
+        "maxSelections": 1,
         "questionText": "When faced with new activities,",
         "answers": [
             {
@@ -45,8 +48,9 @@
         ]
     },
     {
-        "questionID": "DistanceTravel",
-        "progressText": "4",
+        "questionID": "TravelResponse",
+        "questionType": "Card",
+        "maxSelections": 1,
         "questionText": "When I have to travel a distance I can't walk",
         "answers": [
             {
@@ -60,35 +64,21 @@
         ]
     },
     {
-        "questionID": "Diagnosis",
-        "progressText": "5",
+        "questionID": "DisabilityDiagnosis",
+        "questionType": "Check",
         "questionText": "What are you diagnosed with? Select all that apply.",
         "answers": [
-            {
-                "text": "Autism",
-                "image": "/images/answers/question4/answer1.svg"
-            },
-            {
-                "text": "Asperger's",
-                "image": "/images/answers/question4/answer2.svg"
-            },
-            {
-                "text": "Learning Disability",
-                "image": "/images/answers/question4/answer2.svg"
-            },
-            {
-                "text": "ADD/ADHD",
-                "image": "/images/answers/question4/answer2.svg"
-            },
-            {
-                "text": "Other",
-                "image": "/images/answers/question4/answer2.svg"
-            }
+            "Autism",
+            "Asperger's",
+            "ADD/ADHD",
+            "Learning Disability",
+            "Other"
         ]
     },
     {
-        "questionID": "AnswerVerbally",
-        "progressText": "6",
+        "questionID": "VerbalQuestionResponse",
+        "questionType": "Card",
+        "maxSelections": 1,
         "questionText": "Are you willing and able to answer questions verbally on your own?",
         "answers": [
             {
@@ -102,8 +92,9 @@
         ]
     },
     {
-        "questionID": "FillingYourself",
-        "progressText": "7",
+        "questionID": "IndependentApp",
+        "questionType": "Card",
+        "maxSelections": 1,
         "questionText": "Are you filling this application out yourself?",
         "answers": [
             {
@@ -121,19 +112,16 @@
         ]
     },
     {
-        "questionID": "Break",
-        "progressText": "8",
-        "questionText": "Preparing for Success",
-        "answers": [
-            {
-                "text": "This one isn't a question...",
-                "image": "/images/answers/question4/answer1.svg"
-            }
-        ]
+        "questionID": "Preferences",
+        "progressText": "Work Preferences",
+        "questionType": "N/A",       
+        "questionText": "Work Preferences: Preparing for Success",
+        "subtext": "There are many types of tasks and work environments that accomodate different needs. The more flexible you are the more jobs you may find, but it's important to stay true to what your capabilities are!\n\nAnswering the following questions truthfully will help us find you a meaningful job that you'll be willing and able to do well in.",
+        "image": "/images/answers/question9/answer1.svg"
     },
     {
-        "questionID": "AvailableTimes",
-        "progressText": "9",
+        "questionID": "WorkAvailability",
+        "questionType": "Card",
         "questionText": "I can be avaliable to work during...",
         "answers": [
             {
@@ -159,8 +147,8 @@
         ]
     },
     {
-        "questionID": "Environments",
-        "progressText": "10",
+        "questionID": "NegativeWorkScenarios",
+        "questionType": "Card",
         "questionText": "I am NOT open to working in...",
         "answers": [
             {
@@ -186,8 +174,8 @@
         ]
     },
     {
-        "questionID": "Location",
-        "progressText": "11",
+        "questionID": "SuccessfulWorkScenarios",
+        "questionType": "Card",
         "questionText": "I can be succesful at a job that is...",
         "answers": [
             {
@@ -201,5 +189,186 @@
                 "image": "/images/answers/question11/answer2.svg"
             }
         ]
+    },
+    {
+        "questionID": "WillingToCompleteTasks",
+        "questionType": "Card",
+        "questionText": "I am willing and able to complete tasks that require...",
+        "answers": [
+            {
+                "text": "Computer Work or Data Entry",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on a computer.\"",
+                "image": "/images/answers/question12/answer1.svg"
+            },
+            {
+                "text": "Communicating Info to Others",
+                "subtext": "\"I am willing and able to take a job if it requires me to frequently communicate information.\"",
+                "image": "/images/answers/question12/answer2.svg"
+            },
+            {
+                "text": "Driving a Vehicle",
+                "subtext": "\"I am willing and able to take a job if it requires driving a vehicle.\"",
+                "image": "/images/answers/question12/answer3.svg"
+            },
+            {
+                "text": "Standing for Long Periods",
+                "subtext": "\"I am willing and able to take a job if it requires me to stand for long periods of time.\"",
+                "image": "/images/answers/question12/answer4.svg"
+            },
+            {
+                "text": "Heavy Lifting",
+                "subtext": "\"I am willing and able to take a job if it requires me to lift heavy objects.\"",
+                "image": "/images/answers/question12/answer5.svg"
+            },
+            {
+                "text": "Working with Animals",
+                "subtext": "\"I am willing and able to take a job if it requires me to work with animals.\"",
+                "image": "/images/answers/question12/answer6.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "SuccessfulSituations",
+        "questionType": "Card",
+        "questionText": "I can do well in situations where I must...",
+        "answers": [
+            {
+                "text": "Work on Many Tasks at Once",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on many tasks at once.\"",
+                "image": "/images/answers/question13/answer1.svg"
+            },
+            {
+                "text": "Work on Tight Deadlines",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on tasks quickly.\"",
+                "image": "/images/answers/question13/answer2.svg"
+            },
+            {
+                "text": "Work for Periods Without Help",
+                "subtext": "\"I am willing and able to take a job even if people can't answer my questions for long periods of time.\"",
+                "image": "/images/answers/question13/answer3.svg"
+            },
+            {
+                "text": "Accept Feedback and Constructive Criticism",
+                "subtext": "\"I am willing and able to take a job where others make suggestions about my work without asking me for advice.\"",
+                "image": "/images/answers/question13/answer4.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "WorkWellIn",
+        "questionType": "Card",
+        "questionText": "I can work well...",
+        "answers": [
+            {
+                "text": "On a Team",
+                "subtext": "\"I am willing and able to take a job if it requires me to work on a team of people to accomplish tasks.\"",
+                "image": "/images/answers/question14/answer1.svg"
+            },
+            {
+                "text": "By Myself",
+                "subtext": "\"I am willing and able to take a job if it requires me to work alone to accomplish tasks.\"",
+                "image": "/images/answers/question14/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "GatheringBasics",
+        "progressText": "Basic Information",
+        "questionType": "N/A",
+        "questionText": "Finding Your Match: Gathering the Basics",
+        "subtext": "So far, you've been asked about your preferences. For now, feel free to take a break, save your progress, and come back tomorrow. Or, keep going! In the next section we will ask questions about your basic information and experience. It is important to answer truthfully so that we can match you up with the employers who will be right for you.",
+        "image": "/images/answers/question9/answer1.svg"
+    },
+    {
+        "questionID": "LegalAuthorization",
+        "questionType": "Card",
+        "maxSelections": 1,
+        "questionText": "Are you legally authorized to work in the United States?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question16/answer1.png"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question16/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "RequireSponsorship",
+        "questionType": "Card",
+        "maxSelections": 1,
+        "questionText": "Will you now or in the future require sponsorship for employment visa status (e.g. H-1B visa)?",
+        "answers": [
+            {
+                "text": "Yes",
+                "image": "/images/answers/question17/answer1.svg"
+            },
+            {
+                "text": "No",
+                "image": "/images/answers/question17/answer2.svg"
+            }
+        ]
+    },
+    {
+        "questionID": "HighestEducation",
+        "questionType": "Check",
+        "maxSelections": 1,
+        "questionText": "What is the highest degree of education you've completed (or are currently pursuing)?",
+        "answers": [
+            "High School",
+            "Post-secondary Certificate",
+            "Associate's Degree",
+            "Bachelor's Degree",
+            "Master's Degree or higher"
+        ]
+    },
+    {
+        "questionID": "TrainingProgram",
+        "questionType": "Check",
+        "maxSelections": 1,
+        "questionText": "Are you or were you part of a vocational/work training program?",
+        "answers": [
+            "Yes",
+            "No"
+        ]
+    },
+    {
+        "questionID": "YearsExperience",
+        "questionType": "Check",
+        "maxSelections": 1,
+        "questionText": "How many years of work experience do you have?",
+        "answers": [
+            "Never Employed",
+            "0-1 years",
+            "1-2 years",
+            "2-4 years",
+            "4-10 years",
+            "10+ years"
+        ]
+    },
+    {
+        "questionID": "PhoneNumber",
+        "questionType": "Input",
+        "questionText": "What is the best number to reach you at?",
+        "inputs": [
+            "Phone Number"
+        ]
+    },
+    {
+        "questionID": "MostRecentJob",
+        "questionType": "Input",
+        "questionText": "What is your ZIP code?",
+        "inputs": [
+            "ZIP Code"
+        ]
+    },
+    {
+        "questionID": "End",
+        "questionType": "N/A",
+        "progressText": "Finish",
+        "questionText": "Thanks for your time!",
+        "subtext": "Mentra is  generating you a custom profile based on your experience and preferences to help and find you the perfect job. :)"
     }
 ]

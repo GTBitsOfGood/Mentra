@@ -3,14 +3,33 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
     type Query {
       readUser(id: ID!): User!
+      test: Message!
     }
+
     type Mutation {
-      createUser(user: UserInput!): User!
-      updateUser(id: ID!, user: UserInput!): User!
-      deleteUser(id: ID!): ID!
+      createUser(user: AccountInput!): User!
+      updateUser(id: ID!, keyValPair: KeyValuePair!): User!
+      updateUserKeyVal(filterPair: KeyValuePair!, targetPair: KeyValuePair!): User!
+      deleteUser(id: ID!): User!
       updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
     }
     # INPUT TYPES
+
+    type Message {
+      success: Boolean!,
+      content: String!
+    }
+
+    input KeyValuePair {
+      key: String!,
+      value: String!
+    }
+
+    input AccountInput {
+      userName: String!,
+      email: String!,
+      password: String!
+    }
 
     input UserInput {
       account: AccountInput!
@@ -18,13 +37,6 @@ const typeDefs = gql`
       experience: ExperienceInput
       workPreference: WorkPreferenceInput
       disability: DisabilityInput
-    }
-
-    input AccountInput {
-      createdAt: String!
-      userName: String!
-      email: String!
-      password: String!
     }
 
     input IdentityInput {
@@ -50,7 +62,7 @@ const typeDefs = gql`
       timing: TimingInput!
       workingSpace: SpacesInput!
       tasks: TasksInput!
-      situation: SituationsInput!
+      situation: SituationInput!
       flexibility: FlexibilityInput!
       teamwork: Boolean!
     }
@@ -100,17 +112,7 @@ const typeDefs = gql`
       workWithAnimals: Boolean!
     }
 
-    input SituationsInput {
-      manyTasks: Boolean!
-      tightdeadlines: Boolean!
-      longWorkPeriods: Boolean!
-      workOnTeams: Boolean!
-      workAlone: Boolean!
-      acceptFeedback: Boolean!
-      changeTasks: Boolean!
-    }
-
-    input FlexibilityInput {
+    input SituationInput {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!
@@ -163,9 +165,9 @@ const typeDefs = gql`
     type WorkPreference {
       didOwnApplication: Boolean!
       timing: Timing!
-      workingSpace: Spaces!
+      workingSpace: Space!
       tasks: Tasks!
-      situation: Situations!
+      situation: Situation!
       flexibility: Flexibility!
       teamwork: Boolean!
     }
@@ -198,7 +200,7 @@ const typeDefs = gql`
       weekends: Boolean!
     }
 
-    type Spaces {
+    type Space {
       noisyEnvironment: Boolean!
       brightLights: Boolean!
       openFoodArea: Boolean!
@@ -216,7 +218,7 @@ const typeDefs = gql`
       workWithAnimals: Boolean!
     }
 
-    type Situations {
+    type Situation {
       manyTasks: Boolean!
       tightdeadlines: Boolean!
       longWorkPeriods: Boolean!

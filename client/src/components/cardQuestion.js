@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { CardDeck, Card } from 'react-bootstrap';
 
-export default class Question extends Component {
+export default class CardQuestion extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            answers: props.answers.map(answer => false)
+            answers: new Array(props.answers.length).fill(false)
         };
     }
 
     handleCheck = (index) => {
-        let updatedAnswers = this.state.answers;
+        var updatedAnswers = this.state.answers;
+        if (updatedAnswers.filter(answer => answer === true).length === this.props.maxSelections) {
+            updatedAnswers.fill(false);
+        }
         updatedAnswers[index] = !updatedAnswers[index];
         this.setState({
             answers: updatedAnswers
