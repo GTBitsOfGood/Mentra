@@ -241,18 +241,23 @@ const typeDefs = gql`
     enum Gender {
       FEMALE
       MALE
+      TRANS_MALE
+      TRANS_FEMALE
+      GENDERQUEER
       OTHER
+      NO_ANSWER
       # not sure what types we want to include
     }
 
     enum Race {
       AMERICAN_INDIAN
       ASIAN
-      AFRICAN_AMERICAN
+      BLACK
       LATINX
       PACIFIC_ISLANDER
       WHITE
       MULTIRACIAL
+      NO_ANSWER
     }
     enum Degree {
       ASSOCIATE
