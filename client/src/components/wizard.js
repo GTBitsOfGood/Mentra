@@ -32,7 +32,6 @@ export default class Wizard extends Component {
         this.state = {};
         this.state = {
             account: {
-                createdAt: String,
                 userName: String,
                 email: String,
                 password: String,
@@ -51,7 +50,7 @@ export default class Wizard extends Component {
                 sponsorship: Boolean,
                 resume: String
             },
-            disability: { 
+            disability: {
                 employable: Boolean,
                 speechAbility: Boolean,
                 createdOwnProfile: Boolean,
@@ -122,7 +121,7 @@ export default class Wizard extends Component {
             case "OpportunityType":
                 this.setState({
                     ...this.state,
-                    
+
                 });
                 break;
             case "NewActivityResponse":
@@ -162,7 +161,7 @@ export default class Wizard extends Component {
             case "NonQuestion":
                 this.setState({
                     ...this.state,
-    
+
                 });
                 break;
             case "WorkAvailability":
@@ -188,7 +187,7 @@ export default class Wizard extends Component {
                         answers
                     }
                 });
-                break; 
+                break;
             default:
                 break;
         }
@@ -197,26 +196,28 @@ export default class Wizard extends Component {
 
     submitForm = () => {
         const [createUser, { data }] = useMutation(CREATE_USER);
-        createUser({variables: {
-            account: this.state.account,
-            identity: this.state.identity,
-            experience: {
-                ...this.state.experience,
-                training: [
-                    this.state.training
-                ],
-                education: [
-                    this.state.education
-                ],
-            },
-            workPreference: {
-                timing: this.state.timing,
-                workingSpace: this.state.spaces,
-                tasks: this.state.tasks,
-                situation: this.state.situation,
-            },
-            disability: this.state.disability,
-        }});
+        createUser({
+            variables: {
+                account: this.state.account,
+                identity: this.state.identity,
+                experience: {
+                    ...this.state.experience,
+                    training: [
+                        this.state.training
+                    ],
+                    education: [
+                        this.state.education
+                    ],
+                },
+                workPreference: {
+                    timing: this.state.timing,
+                    workingSpace: this.state.spaces,
+                    tasks: this.state.tasks,
+                    situation: this.state.situation,
+                },
+                disability: this.state.disability,
+            }
+        });
     }
 
     render() {
@@ -234,13 +235,13 @@ export default class Wizard extends Component {
                     component = <InputQuestion key={index} id={question.questionID} inputs={question.inputs} text={question.questionText} dismountCallback={this.updateUserData}></InputQuestion>
                     break;
                 case "N/A":
-                    component = <div fluid style={{margin:'3em'}}>
-                                    <h1>{question.questionText}</h1>
-                                    <p style={{margin: '2em'}}>{question.subtext}</p>
-                                    <Image src={question.image} fluid></Image>
-                                </div>
+                    component = <div fluid style={{ margin: '3em' }}>
+                        <h1>{question.questionText}</h1>
+                        <p style={{ margin: '2em' }}>{question.subtext}</p>
+                        <Image src={question.image} fluid></Image>
+                    </div>
                     break;
-                default: 
+                default:
                     break;
             }
             return ({
@@ -252,7 +253,7 @@ export default class Wizard extends Component {
         // steps.unshift({component: <Login/>});
         return (
             <div className='step-progress'>
-                <StepZilla steps={steps} prevBtnOnLastStep={false}/>
+                <StepZilla steps={steps} prevBtnOnLastStep={false} />
             </div>
         );
     }
