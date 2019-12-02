@@ -3,7 +3,6 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
     type Query {
       readUser(id: ID!): User!
-      test: Message!
     }
 
     type Mutation {
@@ -35,7 +34,7 @@ const typeDefs = gql`
       gender: Gender
       race: Race
       address: AddressInput
-      age: Integer
+      age: Int
     }
 
     input ExperienceInput {
@@ -66,7 +65,7 @@ const typeDefs = gql`
     input EducationInput {
       university: String!
       degree: Degree!
-      graduationYear: Integer!
+      graduationYear: Int!
     }
 
     input TrainingInput {
@@ -111,7 +110,7 @@ const typeDefs = gql`
       changeTasks: Boolean!
     }
 
-    input flexibilityInput {
+    input FlexibilityInput {
       dailyTasks: Boolean!
       workingHours: Boolean!
     }
@@ -147,7 +146,7 @@ const typeDefs = gql`
       gender: Gender
       race: Race
       address: Address
-      age: Integer
+      age: Int
     }
     type Experience {
       training: [Training!]!
@@ -183,7 +182,7 @@ const typeDefs = gql`
     type Education {
       university: String!
       degree: Degree!
-      graduationYear: Integer
+      graduationYear: Int
     }
 
     type Timing {
