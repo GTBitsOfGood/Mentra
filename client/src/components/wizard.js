@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Image } from 'react-bootstrap';
 
+import { Enum } from 'ok-enum';
+
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -40,8 +42,25 @@ export default class Wizard extends Component {
                 fullName: String,
                 email: String,
                 phoneNumber: String,
-                gender: Boolean,
-                ethnicity: String,
+                gender: New Enum([
+                    "MALE",
+                    "FEMALE",
+                    "TRANS_MALE",
+                    "TRANS_FEMALE",
+                    "GENDERQUEER",
+                    "OTHER",
+                    "NO_ANSWER"
+                ]),
+                race: New Enum([
+                    "AMERICAN_INDIAN",
+                    "ASIAN",
+                    "BLACK",
+                    "LATINX",
+                    "PACIFIC_ISLANDER",
+                    "WHITE",
+                    "MULTIRACIAL",
+                    "NO_ANSWER"
+                ]),
                 address: String,
                 age: Number
             },
@@ -97,6 +116,10 @@ export default class Wizard extends Component {
                 workAlone: Boolean,
                 acceptFeedback: Boolean,
                 changeTasks: Boolean,
+            },
+            flexibility: {
+                dailyTasks: Boolean,
+                workingHours: Boolean,
             },
             address: {
                 country: String,
