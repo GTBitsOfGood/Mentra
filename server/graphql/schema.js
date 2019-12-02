@@ -21,6 +21,7 @@ const typeDefs = gql`
     }
 
     input AccountInput {
+      createdAt: String!
       userName: String!
       email: String!
       password: String!
@@ -31,7 +32,7 @@ const typeDefs = gql`
       email: String!
       phoneNumber: String
       gender: Gender
-      ethnicity: Ethnicity
+      race: Race
       address: AddressInput
       age: Int
     }
@@ -61,16 +62,16 @@ const typeDefs = gql`
       diagnosis: Boolean!
     }
 
-    input TrainingInput {
-      name: String!
-      coach: String!
-      receivedEducation: Boolean!
-    }
-
     input EducationInput {
       university: String!
       degree: Degree!
       graduationYear: Int
+    }
+
+    input TrainingInput {
+      name: String!
+      coach: String!
+      receivedEducation: Boolean!
     }
 
     input TimingInput {
@@ -110,8 +111,13 @@ const typeDefs = gql`
     }
 
     input FlexibilityInput {
-      dailyTasks: Boolean!
-      workingHours: Boolean!
+      manyTasks: Boolean!
+      tightdeadlines: Boolean!
+      longWorkPeriods: Boolean!
+      workOnTeams: Boolean!
+      workAlone: Boolean!
+      acceptFeedback: Boolean!
+      changeTasks: Boolean!
     }
 
     input AddressInput {
@@ -143,7 +149,7 @@ const typeDefs = gql`
       email: String!
       phoneNumber: String
       gender: Gender
-      ethnicity: Ethnicity
+      race: Race
       address: Address
       age: Int
     }
@@ -234,13 +240,15 @@ const typeDefs = gql`
       streetAddress: String!
       postalCode: String!
     }
+
     # ENUMS
     enum Gender {
       FEMALE
       MALE
       # not sure what types we want to include
     }
-    enum Ethnicity {
+
+    enum Race {
       AMERICAN_INDIAN
       ASIAN
       AFRICAN_AMERICAN
