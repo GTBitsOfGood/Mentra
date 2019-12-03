@@ -2,18 +2,18 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
     type Query {
-      readUser(id: ID!): User!
+      readCandidate(id: ID!): Candidate!
     }
 
     type Mutation {
-      createUser(user: UserInput!): User!
-      updateUser(id: ID!, user: UserInput!): User!
-      deleteUser(id: ID!): ID!
-      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): User!
+      createCandidate(user: CandidateInput!): Candidate!
+      updateCandidate(id: ID!, user: CandidateInput!): Candidate!
+      deleteCandidate(id: ID!): ID!
+      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): Candidate!
       }
     # INPUT TYPES
 
-    input UserInput {
+    input CandidateInput {
       account: AccountInput!
       identity: IdentityInput
       experience: ExperienceInput
@@ -125,7 +125,7 @@ const typeDefs = gql`
     }
 
     # TOP LEVEL AGGREGATES
-    type User {
+    type Candidate {
       id: ID!
       account: Account!
       identity: Identity
