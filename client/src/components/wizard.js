@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Image } from 'react-bootstrap';
 
-import { Enum } from 'ok-enum';
+import Enum from 'ok-enum';
 
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
@@ -17,10 +17,10 @@ import Login from './login';
 
 const CREATE_USER = gql`
   # define our mutation in terms of the schema mutation
-  mutation createUser($user: UserInput!) {
+  mutation createCandidate($user: CandidateInput!) {
     # from the returned user, get its ID
-    createUser(user: $user) {
-        user {
+    createCandidate(candidate: $candidate) {
+        candidate {
             id
         }
     }
@@ -42,7 +42,7 @@ export default class Wizard extends Component {
                 fullName: String,
                 email: String,
                 phoneNumber: String,
-                gender: New Enum([
+                gender: new Enum([
                     "MALE",
                     "FEMALE",
                     "TRANS_MALE",
@@ -51,7 +51,7 @@ export default class Wizard extends Component {
                     "OTHER",
                     "NO_ANSWER"
                 ]),
-                race: New Enum([
+                race: new Enum([
                     "AMERICAN_INDIAN",
                     "ASIAN",
                     "BLACK",
@@ -142,6 +142,7 @@ export default class Wizard extends Component {
                 });
                 break;
             case "OpportunityType":
+
                 this.setState({
                     ...this.state,
 
