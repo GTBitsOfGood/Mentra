@@ -1,10 +1,13 @@
+require('dotenv').config()
+
 const { ApolloServer, makeExecutableSchema } = require('apollo-server')
 const { typeDefs } = require('./schema')
 const Queries = require('./resolvers/Query')
 const Mutations = require('./resolvers/Mutation')
 const Candidate = require('./resolvers/Candidate')
+const MongoClient = require('mongodb').MongoClient
 
-const MONGO_CONNECTOR_URL = 'http://localhost:6000'
+const mongo = new MongoClient(env.MONGO_URI, { useNewUrlParser: true })
 
 const resolvers = {
   Query: Queries,
@@ -18,7 +21,7 @@ const server = new ApolloServer({
   context: request => {
     return {
       ...request,
-      MONGO_CONNECTOR_URL
+      mongo,
     }
   }
 });
