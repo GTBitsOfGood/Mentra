@@ -6,10 +6,8 @@ const typeDefs = gql`
     }
 
     type Mutation {
-      createCandidate(user: CandidateInput!): Candidate!
-      updateCandidate(id: ID!, user: CandidateInput!): Candidate!
-      deleteCandidate(id: ID!): ID!
-      updateWorkPreference(id: ID!, workPreference: WorkPreferenceInput!): Candidate!
+      signupCandidate(candidate: CandidateInput!): Candidate!
+      removeCandidate(id: ID!): ID!
       }
     # INPUT TYPES
 
@@ -133,12 +131,20 @@ const typeDefs = gql`
       workPreference: WorkPreference
       disability: Disability
     }
+    # stub to validate the use of the UserData union
+    # will fill later
+    type Recruiter {
+      id: ID!
+      account: Account!
+    }
+
     # 2nd LEVEL AGGREGATES
     type Account {
-      createdAt: String!
+      userID: ID!
       userName: String!
       email: String!
-      password: String!
+      type: AccountType!
+      data: UserData!
     }
     type Identity {
       fullName: String!
@@ -266,6 +272,13 @@ const typeDefs = gql`
       MASTER
       DOCTOR
     }
+
+    enum AccountType {
+      CANDIDATE
+      RECRUITER
+    }
+
+    union UserData = Candidate | Recruiter
   `;
 
 module.exports = {
