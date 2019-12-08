@@ -1,10 +1,22 @@
 export default {
-  createCandiate(mongoClient, candidate) {
-    // open connection to Candidate collection
-    // perform write and return result
-  }
+  createCandidate: async function (mongoClient, candidate) {
+    client.connect(err => {
+      mongoClient.db("mentra_db").collection("candidates").insertOne(candidate, (err, res) => {
+        if (err) {
+          throw new ServerError("error when inserting new candidate")
+        }
+        return res.ops[0]
+      })
+    })
+  },
   deleteCandidate(mongoClient, candidateId) {
-    // open connection to candidate collection
-    // perform the delete and return the result
+    client.connect(err => {
+      mongoClient.db("mentra_db").collection("candidates").insertOne({ _id: candidateId }, (err, res) => {
+        if (err) {
+          throw new ServerError("error when deleting candidate")
+        }
+        return candidateId
+      })
+    })
   }
 }
