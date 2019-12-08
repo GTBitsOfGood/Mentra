@@ -9,14 +9,26 @@ export default {
       })
     })
   },
-  deleteCandidate(mongoClient, candidateId) {
+  readCandidate: async function (mongoClient, filter) {
     client.connect(err => {
-      mongoClient.db("mentra_db").collection("candidates").insertOne({ _id: candidateId }, (err, res) => {
+      mongoClient.db("mentra_db").collection("candidates").findOne(filter, (err, res) => {
         if (err) {
-          throw new ServerError("error when deleting candidate")
+          throw new ServerError("error when trying to query for candidate")
         }
-        return candidateId
+        return res.value
       })
     })
   }
+
+}
+deleteCandidate: async function (mongoClient, candidateId) {
+  client.connect(err => {
+    mongoClient.db("mentra_db").collection("candidates").insertOne({ _id: candidateId }, (err, res) => {
+      if (err) {
+        throw new ServerError("error when deleting candidate")
+      }
+      return candidateId
+    })
+  })
+}
 }
