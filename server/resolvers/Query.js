@@ -1,7 +1,10 @@
-const axios = require('axios')
+const { readCandidate } = require('../models/Candidate')
 
-async function readCandidate(parent, args, context, info) {
-
+function readCandidate(parent, args, context, info) {
+    const filter = {
+        id: args.id
+    }
+    return readCandidate(context.mongoClient, filter)
 }
 
 module.exports = {

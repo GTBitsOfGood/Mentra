@@ -1,16 +1,15 @@
 const axios = require('axios')
+const { createCandidate, deleteCandidate } = require('../models/Candidate')
 
-async function signupCandidate(parent, args, context, info) {
-
+function signupCandidate(parent, args, context, info) {
+	return createCandidate(context.mongoClient, args.candidate)
 }
 
-async function removeCandidate(parent, args, context, info) {
-
+function removeCandidate(parent, args, context, info) {
+	return removeCandidate(context.mongoClient, args.id)
 }
 
 module.exports = {
-	updateWorkPreference,
-	deleteCandidate,
-	updateCandidate,
-	createCandidate
+	signupCandidate,
+	removeCandidate,
 }
